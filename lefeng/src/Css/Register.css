@@ -30,11 +30,11 @@ a{
 	text-decoration: none;
 	color:#000;
 }
-.login{
+.register{
 	width:100%;
 	height:100%;
 }
-.login .top{
+.top{
 	padding:0 20px;
 	display: flex;
 	justify-content: space-between;
@@ -43,20 +43,30 @@ a{
 	box-shadow: -10px 0 10px #000;
 	background:#f9fafb;
 }
-.login .top h2{
+.top h2{
 	font-size:20px;
 	font-weight:600;
 	color:#777;
 }
-.login .top i{
+.top i{
 	font-size:25px;
 	color:#aaa;
 	font-weight:600;
 }
-.login .bottom{
+.bottom{
 	padding:30px 20px;
+	height:105px;
+	position: relative;
 }
-.login .bottom input.i1{
+.bottom input.i1{
+	width:64%;
+	height:45px;
+	border: 1px solid #ddd;
+    padding-left:10px;
+    font-size: 13px;
+    transition: border-color .1s ease-in-out;
+}
+.bottom input.i2{
 	width:97%;
 	height:45px;
 	border: 1px solid #ddd;
@@ -64,42 +74,25 @@ a{
     font-size: 13px;
     transition: border-color .1s ease-in-out;
 }
-.login .bottom .p1{
-	height:55px;
-	text-align:left;
-	line-height:55px;
-	padding:0 15px;
-}
-.login .bottom .p1 .s1{
+.bottom button.reg{
+	position: absolute;
+	top:31px;
+	right:20px;
+	width:30%;
 	display:block;
-	width:17px;
-	height:17px;
-	margin-right:10px;
-	border-radius: 50%;
-	border:1px solid #ccc;
-	margin-top:5%;
-	background:#ff0056;
-	color:#fff;
-	line-height:17px;
-	text-align:center;
+	height:45px;
+	line-height:45px;
+    font-size: 16px;
+        background: #ff0056;
+        border:none;
 }
-.login .bottom .p1 .s2{
-	font-size:100%;
-}
-.login .bottom button{
-	height:49px;
-	border-radius: 5px;
-	background:#ff0056;
-	width: 100%;
-	border:none;
-	color:#fff;
-	font-size:18px;
-}
-.login .bottom p.r{
-	padding-top:10px;
-}
-.login .bottom p.r a{
-	margin:0 4px;
-	font-size:14px;
-	color:#72b5d9;
+.bottom button.regi{
+	width:100%;
+	height:45px;
+	line-height:45px;
+    font-size: 16px;
+    background: #ff0056;
+    border:none;
+    margin-top:20px;
+    color:#fff;
 }
