@@ -9,6 +9,9 @@ class RegisterUI extends Component{
 	componentDidMount() {
 		
 	}
+	register(){
+		alert('dfkk')
+	}
 	render() {
 		var props = this.props;
 		return(
@@ -23,7 +26,7 @@ class RegisterUI extends Component{
 						<button className='l reg'>获取验证码</button><br/>
 						<input type='text' placeholder='请输入短信验证码' className='i2' /><br/>	
 						<input type='password' placeholder='请输入密码' className='i2' /><br/>
-						<button className='regi'>注册</button>
+						<button className='regi' onClick={this.register}>注册</button>
 				</div>
 			</div>
 		)
