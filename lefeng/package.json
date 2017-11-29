@@ -20,12 +20,21 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-      "/api": {
-        "target": "http://w.lefeng.com",
-        "changeOrigin": true,
-        "pathRewrite": { "^/api": "/api" },
-        "ws": true
-      }
+    "/api": {
+      "target": "http://w.lefeng.com",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "/api"
+      },
+      "ws": true
+    },
+    "/users": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/users": "/users"
+      },
+      "ws": true
+    }
   }
-
 }

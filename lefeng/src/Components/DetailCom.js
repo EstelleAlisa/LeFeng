@@ -8,7 +8,7 @@ import {
 
 class DetailComUI extends React.Component{
 	componentDidMount() {
-		this.props.getdetail()
+		this.props.getdetail(this.props.match.params.did)
 		this.props.	getbuy()
 		this.props.	getbuy_1()
 		this.props.	getbuy_2()
@@ -22,6 +22,19 @@ class DetailComUI extends React.Component{
 		document.querySelector(".information_1").style.display='none';
   		document.querySelector(".instruction_1").style.display='block';
   	}
+	save(){
+			axios.post('/users/save',{
+			product_name:document.querySelector('.top h2').innerHTML,
+			product_count:1,
+			price:document.querySelector('.pricenow span').innerHTML,
+			pic:document.querySelector('.bigpic img').src,
+			brandName:document.querySelector('.brandName').innerHTML,
+
+		})
+		.then(function(res){
+			console.log(res)
+		})
+	}
 	render(){
 		var props_1=this.props.detailData;
 		console.log(props_1)
@@ -34,13 +47,15 @@ class DetailComUI extends React.Component{
 		return (
 			<div className="detail">
 				<div className='top'>
-					<Link to='/home'><i class="iconfont">&#xe608;</i></Link>
+					
+					<Link to={"/home"}><i class="iconfont">&#xe608;</i></Link>
 					<h2>{props_1.name}</h2>
 					<Link to='/home'><i class="iconfont">&#xe63a;</i></Link>
 				</div>
 				<div className="bigpic">
 					<img src={props_1.middleImage}/>
 				</div>
+				
 				<div className="introduce">
 					<p className="p1">
 						<span className="globa">蜂购全球</span>
@@ -48,9 +63,13 @@ class DetailComUI extends React.Component{
 						<span></span>
 					</p>
 					<p className="p2">
-						<span className="pricenow">￥{props_1.vipshopPrice}</span>
+						<span className="pricenow">￥<span>{props_1.vipshopPrice}</span></span>
 						<span className="priceold">{props_1.marketPrice}</span>
+						<span className="brandName" style={{display:"none"}}>{props_1.brandName}</span>
 					</p>
+				</div>
+				<div className="man">
+					
 				</div>
 				<div className="appraise">
 					<ul>
@@ -63,10 +82,12 @@ class DetailComUI extends React.Component{
 						<li>
 							<p>
 								<span className="agree">满意</span>
+
 								<span className="r">2017-5-3</span>
 								<span className="r padd">123****456</span>
 							</p>
 							<p>对方的老师根据法国</p>
+
 						</li>
 						<li>
 							<p>
@@ -182,12 +203,14 @@ class DetailComUI extends React.Component{
 					{
 						props_2.map((item,index)=>{
 							return (
-								<dl key={item.id}>
+								<dl key={index}>
 									<dt>
-										<img src={item.goods.image}/>
+										<Link to={'/detail/'+item.goods.gid}>
+										    <img src={item.goods.image}/>
+										</Link>
 									</dt>
 									<dd>
-										<sapn className="l">{item.goods.brandStoreName}</sapn>
+										<span className="l">{item.goods.brandStoreName}</span>
 										<span className="r">{item.goods.productName}</span>
 									</dd>
 								</dl>
@@ -197,12 +220,14 @@ class DetailComUI extends React.Component{
 					{
 						props_3.map((item,index)=>{
 							return (
-								<dl key={item.id}>
+								<dl key={index}>
 									<dt>
-										<img src={item.goods.image}/>
+										<Link to={'/detail/'+item.goods.gid}>
+										    <img src={item.goods.image}/>
+										</Link>
 									</dt>
 									<dd>
-										<sapn className="l">{item.goods.brandStoreName}</sapn>
+										<span className="l">{item.goods.brandStoreName}</span>
 										<span className="r">{item.goods.productName}</span>
 									</dd>
 								</dl>
@@ -212,12 +237,14 @@ class DetailComUI extends React.Component{
 					{
 						props_4.map((item,index)=>{
 							return (
-								<dl key={item.id}>
+								<dl key={index}>
 									<dt>
-										<img src={item.goods.image}/>
+										<Link to={'/detail/'+item.goods.gid}>
+										    <img src={item.goods.image}/>
+										</Link>
 									</dt>
 									<dd>
-										<sapn className="l">{item.goods.brandStoreName}</sapn>
+										<span className="l">{item.goods.brandStoreName}</span>
 										<span className="r">{item.goods.productName}</span>
 									</dd>
 								</dl>
@@ -228,8 +255,11 @@ class DetailComUI extends React.Component{
 					
 				</div>
 				<div className="addcart">
-					<span className="left">fcvgfdg</span>
-					<span className="right">加入购物车</span>
+					<Link to="/cart">
+						<span className="left">购物车</span>
+					</Link>
+
+					<span className="right" onClick={this.save}>加入购物车</span>
 				</div>
 	
 			</div>
@@ -260,8 +290,9 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-  	getdetail:function(){
-  		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid=252420536')
+  	// /api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid=293003531&brandId=800061007
+  	getdetail:function(did){
+  		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
   		.then(function(res){
 		console.log(res)
 			dispatch({

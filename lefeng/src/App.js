@@ -3,6 +3,8 @@ import './App.css';
 import LoginCom from './Components/LoginCom';
 import RegisterCom from './Components/RegisterCom';
 import DetailCom from './Components/DetailCom';
+import DetailsCom from './Components/DetailsCom';
+import CartCom from './Components/CartCom';
 import {
   BrowserRouter as Router,
   Route,
@@ -20,8 +22,11 @@ class App extends Component {
                   <Switch>
                       <Redirect exact from='/' to='/home'/>
                       <Route path='/login' component={LoginCom}/>
-                      <Route path='/detail' component={DetailCom}/>
+                      <Route path='/detail/:did' component={DetailCom}/>
+                      <Route path='/cart' component={CartCom}/>
+                      <Route path='/details' component={DetailsCom}/>
                       <Route path='/register'  component={RegisterCom}/>
+
                   </Switch>
                   </main>
               </div>
