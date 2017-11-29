@@ -272,3 +272,10 @@
 	margin-top:10px;
 	border-radius: 5px;
 }
+
+.detail .allimages{
+	margin-top:-50px;
+}
+.detail .allimages img{
+		width:100%;
+}

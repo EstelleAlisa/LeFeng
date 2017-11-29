@@ -11,6 +11,7 @@ class DetailComUI extends React.Component{
 		this.props.getdetail(this.props.match.params.did)
 		this.props.getdetailS(this.props.match.params.did)
 		this.props.getpmsList(this.props.match.params.did)
+		// this.props.getallImages(this.props.match.params.did)
 		this.props.	getbuy()
 		this.props.	getbuy_1()
 		this.props.	getbuy_2()
@@ -38,7 +39,8 @@ class DetailComUI extends React.Component{
 		})
 	}
 	render(){
-		var props_1=this.props.detailData;	
+		var props_1=this.props.detailData;
+		
 		var props_2=this.props.buyData;
 		var props_3=this.props.buyData_1;
 		var props_4=this.props.buyData_2;
@@ -150,7 +152,18 @@ class DetailComUI extends React.Component{
 							
 						</tbody>
 					</table>
-					<div className="lookpic">点击查看图文详情</div>
+					<div className="lookpic" onClick={()=>{this.props.getallImages(this.props.match.params.did)}}>点击查看图文详情</div>
+					<div  className="allimages">
+						{
+						this.props.allImages.map((item,index)=>{
+							return (
+								
+									<img src={item} key={index}/>
+								
+							)
+						})
+					}
+					</div>
 					
 				</div>
 				<div className="instruction_1">
@@ -269,6 +282,7 @@ const mapStateToProps=(state)=>{
       buyData_2:state.buyData,
       descrip:state.descrip,
       pmsList:state.pmsList,
+      allImages:state.allImages
     }
 }
 
@@ -278,7 +292,7 @@ const mapDispatchToProps=(dispatch)=>{
   	getdetail:function(did){
   		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
   		.then(function(res){
-		console.log(res)
+		console.log(res.data.data.goods)
 			dispatch({
 				type:"DETAIL",
 				payload:res.data.data.goods
@@ -302,6 +316,16 @@ const mapDispatchToProps=(dispatch)=>{
 			dispatch({
 				type:"PM",
 				payload:res.data.data.goods.pmsList
+			})
+  		})
+  	},
+  	getallImages:function(did){
+  		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
+  		.then(function(res){
+		console.log(res.data.data.goods.allImages)
+			dispatch({
+				type:"ALL",
+				payload:res.data.data.goods.allImages
 			})
   		})
   	},
