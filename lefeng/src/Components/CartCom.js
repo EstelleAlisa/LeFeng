@@ -18,6 +18,7 @@ class CartCom extends React.Component{
   	this.getcarted();
   }
   getcarts(id){
+  	console.log('aaa')
 		axios.post('/users/getadd',{
 			id:id
 		})
@@ -39,6 +40,7 @@ class CartCom extends React.Component{
   }
   
   deleting(id){ 
+  		console.log('bbb')
   	axios.post('users/del',{
   		id:id
   	})
@@ -59,6 +61,7 @@ class CartCom extends React.Component{
 		})
   }
   deleted(id){
+  		console.log('ccc')
   	axios.post('users/deled',{
   		id:id
   	})
@@ -69,6 +72,17 @@ class CartCom extends React.Component{
 
 
 	render(){
+		var mepty=<div className="empty">
+						<p><i class="icon iconfont">&#xe502;</i></p>
+						<p>购物车为空哦！</p>
+						<p>赶紧抢点东西犒劳自己吧~</p>
+						<p><Link to="/home"><span>去首页逛逛</span></Link></p>
+					</div>
+					if(this.state.cartdata.length!==0){
+							mepty=null;
+					};
+					
+
 		return (
 			<div className="cartcom">
 				<div className='top'>
@@ -77,6 +91,8 @@ class CartCom extends React.Component{
 					<i></i>
 				</div>
 				<div className="cart_center">
+					{mepty}
+					
 					
 					{
 						this.state.cartdata.map((item,index)=>{

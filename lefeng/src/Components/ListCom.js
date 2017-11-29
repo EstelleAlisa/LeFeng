@@ -27,7 +27,6 @@ class ListUI extends Component{
 	}
 	render() {
 		var props = this.props;
-		console.log(this.props);
 		return(
 			<div className='home'>
 				<div className='search'>
@@ -38,16 +37,18 @@ class ListUI extends Component{
 							<span>阿芙</span>
 						</div>
 					</Link>
-					<i class="iconfont">&#xe601;</i>
+					<i className="iconfont">&#xe601;</i>
 				</div>
 				<div className='slide'>
 					<Carousel autoplay>
 					{
-						props.slide.map(function(item, index) {
+						props.slide.map(function(item,index){
 							return(
-								<Link to={'/details/' + item.bannerId}>
-								<div key={item.bannerId}><img src={item.imgFullPath} alt=''/></div>
-								</Link>
+								<div key={item.bannerId}>
+									<Link to={'/details/' + item.bannerId}>
+											<img src={item.imgFullPath} alt=''/>
+									</Link>
+								</div>
 							) 
 						})
 					}
@@ -95,9 +96,12 @@ class ListUI extends Component{
 					{
 						props.hanList.map((item, index) => {
 							return(
-								<Link to={'/details/'+item.bannerid}>
-								<div key={item.bannerid}><img src={item.imgFullPath}/></div>
-								</Link>
+								
+								<div key={item.bannerid}>
+									<Link to={'/details/'+item.bannerid}>
+										<img src={item.imgFullPath}/>
+									</Link>
+								</div>
 							) 
 						})
 					}
@@ -106,11 +110,13 @@ class ListUI extends Component{
 					{
 						props.globalList.map((item, index) => {
 							return(
-								<div>
-									<span>{item.pictitle}</span>
-									<Link to={'/detail/'+item.gid}>
-									<div key={item.bannerid} className='buy'><img src={item.imgFullPath}/></div>
-									</Link>
+								<div key={index}>
+									<span>{item.pictitle}</span>									
+									<div key={item.bannerid} className='buy'>
+										<Link to={'/detail/'+item.gid}>
+											<img src={item.imgFullPath}/>
+										</Link>
+									</div>
 								</div>
 								
 							)
@@ -123,11 +129,13 @@ class ListUI extends Component{
 					{
 						props.slide3.map(function(item, index) {
 							return(
-								<Link to={'/detail/'+item.gid}>
+								
 								<div className='outBox' key={item.bannerId}>
+								<Link to={'/detail/'+item.gid}>
 									<img src={item.imgFullPath}alt=''/>
-								</div>
 								</Link>
+								</div>
+								
 							) 
 						})
 					}
@@ -174,7 +182,7 @@ class ListUI extends Component{
 					{
 						props.finaList.map((item, index) => {
 							return(
-								<div className='end'>
+								<div className='end' key={index}>
 								<Link to={'/details/' + item.bid}>
 									<div className='finaPic'>
 										<img src={item.brandImage} alt=''/>
@@ -209,10 +217,10 @@ class ListUI extends Component{
 										<img src={item.goods.image} alt='' />
 									</div>
 									<p className='nameInfo'>
-										<span class='name1'>
+										<span className='name1'>
 											{item.goods.brandStoreName}
 										</span>
-										<span class='name2'>
+										<span className='name2'>
 											{item.goods.productName}
 										</span>
 									</p>
@@ -229,16 +237,16 @@ class ListUI extends Component{
 					}
 				</div>
 				<FooterCom></FooterCom>
-				<div>
+				<div className="back">
 				    <BackTop>
 				      <div className="ant-back-top-inner">
-				      		RUNTOP
+				      		<i className="icon iconfont">&#xe617;</i>
 				      </div>
 				    </BackTop>
 				    
-				  </div>
+				</div>
 				  <div className='SHOP'>
-				  	<Link to='/cart'>SHOP</Link>
+				  	<Link to='/cart'> <i className="icon iconfont">&#xe502;</i></Link>
 				  </div>
 			</div>
 		)
