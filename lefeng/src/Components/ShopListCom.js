@@ -88,7 +88,7 @@ class ShopListUI extends React.Component{
 				    <Route path={`${match.url}/price`} component={PriceCom}/>
 				    <Route path={`${match.url}/number`} component={NumberCom}/>
 			    </Switch>
-				<FooterCom></FooterCom>
+			    <FooterCom></FooterCom>
 				<ReactCSSTransitionGroup
 			    	transitionName="amit"
 			    	transitionEnterTimeout={500}

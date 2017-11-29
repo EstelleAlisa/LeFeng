@@ -7,7 +7,6 @@ import '../Css/antd.css';
 import {
   Link
 } from 'react-router-dom';
-import Footer from './FooterCom';
 
 import {
   BrowserRouter as Router,
@@ -16,6 +15,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import axios from 'axios';
+import FooterCom from './FooterCom'
 
 
 class ListUI extends Component{
@@ -228,7 +228,7 @@ class ListUI extends Component{
 						})
 					}
 				</div>
-				<Footer></Footer>
+				<FooterCom></FooterCom>
 				<div>
 				    <BackTop>
 				      <div className="ant-back-top-inner">

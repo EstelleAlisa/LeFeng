@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import './Css/List.css'
 import LoginCom from './Components/LoginCom';
 import RegisterCom from './Components/RegisterCom';
 
