@@ -238,7 +238,7 @@ class ListUI extends Component{
 				    
 				  </div>
 				  <div className='SHOP'>
-				  	<Link to='carts'>SHOP</Link>
+				  	<Link to='/cart'>SHOP</Link>
 				  </div>
 			</div>
 		)
