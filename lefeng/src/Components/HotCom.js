@@ -49,7 +49,6 @@ const mapDispatchToProps = (dispatch) => {
 		getHot: function() {
 			axios.get('/api/neptune/search/hot_keywords/v1?count=10&highlight=1&needType=1')
 			.then(function(res) {
-				console.log(res);
 				var hotList = res.data.data;
 				dispatch({
 					type: 'GET_HOT',

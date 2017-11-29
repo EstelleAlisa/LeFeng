@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class PriceUI extends React.Component{
 	componentDidMount() {
-		this.props.getPriceItem();
+		this.props.getPriceItem(this.props.match.params.value);
 	}
 	render() {
 		var props = this.props;
@@ -55,8 +55,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return{
-		getPriceItem: function(data) {
-			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&sort=%7B%22vipshopPrice%22%3A%22asc%22%7D')
+		getPriceItem: function(newData) {
+			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=' + newData)
 			.then(function(res) {
 				console.log(res);
 				var priceItem = res.data.data;

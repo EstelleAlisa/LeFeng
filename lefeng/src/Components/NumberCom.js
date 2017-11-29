@@ -4,11 +4,12 @@ import '../Css/ShopList.css';
 import axios from 'axios';
 
 class NumberUI extends React.Component{
-	componentDidMount() {
-		this.props.getNumberItem();
+	componentDidMount() {	
+		this.props.getNumberItem(this.props.match.params.value);
 	}
 	render() {
 		var props = this.props;
+
 		return(
 			<div className='searShop'>
 				<ul>
@@ -55,8 +56,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return{
-		getNumberItem: function(data) {
-			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85&sort=%7B%22sale%22%3A%22desc%22%7D')
+		getNumberItem: function(newData) {
+			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=' + newData)
 			.then(function(res) {
 				console.log(res);
 				var numberItem = res.data.data;

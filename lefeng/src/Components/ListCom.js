@@ -277,8 +277,6 @@ const mapDispatchToProps = (dispatch) => {
 				var slideList3 = res.data.data[728];
 				var hanList = res.data.data[725];
 				var globalList = res.data.data[727];
-				console.log(slideList);
-				console.log(slideList2);
 				dispatch({
 					type: 'GET_SLIDE',
 					payload: slideList
@@ -305,10 +303,8 @@ const mapDispatchToProps = (dispatch) => {
 		getSpecial: function() {
 				axios.get('/api/neptune/special_brands/v3?page=1&labelType=1')
 				.then(function(res) {
-					console.log(res);
 					var special = res.data.data;
 					var other = res.data.data[0].starProductList;
-					console.log(special);
 					dispatch({
 						type:'GET_SPECIAL',
 						payload:special
@@ -322,11 +318,8 @@ const mapDispatchToProps = (dispatch) => {
 		getFina: function() {
 				axios.get('/api/neptune/special_brands/v3?page=6&labelType=1')
 				.then(function(res) {
-					console.log(res);
 					var finaList = res.data.data;
-					console.log('vc')
 					console.log(finaList);
-					console.log('bb')
 					dispatch({
 						type:'GET_FINA',
 						payload:finaList
@@ -336,11 +329,8 @@ const mapDispatchToProps = (dispatch) => {
 		getEvery: function() {
 				axios.get('/api/neptune/handpick_list/v1?start=1')
 				.then(function(res) {
-					console.log(res);
 					var everyList = res.data.data;
-					console.log('eee')
 					console.log(everyList);
-					console.log('hhh');
 					dispatch({
 						type:'GET_EVERY',
 						payload:everyList

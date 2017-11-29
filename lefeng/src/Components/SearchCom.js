@@ -32,14 +32,15 @@ class SearchUI extends Component{
 		var value = e.target.value; 
 		var error = ""; 
 		if(value.length < 1) {
-		 	error = "介绍不能少于十个字";
-		 	alert('aaa')
-		} 
+
+		} else{
+			// console.log(value)
+		}
 		this.setState({
 			val: value
 		})
 		
-		
+		console.log(this.state.val)
 	}
 	render() {
 		var props = this.props;
@@ -48,21 +49,23 @@ class SearchUI extends Component{
 
 			<div className='search'>
 				<div className='top'>
-					<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
-					<Link to={`${match.url}/shoplist/`+ 5} className='sss'>
+					<Link to={`${match.url}/shop/${this.state.val}`} className='iSear'>
+						<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
+					</Link>
+					<Link to={`${match.url}/shoplist/${this.state.val}`} className='sss'>
 						<h2 onClick={() =>{props.checkVal()}}>
 							搜索
 						</h2>
 					</Link>
 					<Link to='/home'>
-						<i class="iconfont">&#xe63a;</i>
+						<i className="iconfont">&#xe63a;</i>
 					</Link>
 				</div>
 				<Switch>
 		        <Redirect exact from={`${match.url}/`} to={`${match.url}/hot`}/>
 
 		        <Route path={`${match.url}/hot`} component={Hot}/>
-		        <Route path={`${match.url}/searchlist`} component={SearchList}/>
+		        <Route path={`${match.url}/searchlist/:value`} component={SearchList}/>
 		        <Route path={`${match.url}/shoplist/:value`} component={ShopList}/>
 		      </Switch>
 			</div>
