@@ -290,7 +290,6 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>{
   return {
-  	// /api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid=293003531&brandId=800061007
   	getdetail:function(did){
   		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
   		.then(function(res){

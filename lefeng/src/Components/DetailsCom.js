@@ -23,8 +23,8 @@ class DetailsComUI extends React.Component{
 		}
 	}
 	componentDidMount() {
-		this.props.getdetailsData()
-		this.props.getSize()
+		this.props.getdetailsData(this.props.match.params.dsid)
+		this.props.getSize(this.props.match.params.dsid)
 	}
 	select(){
 		this.setState({
@@ -90,7 +90,7 @@ class DetailsComUI extends React.Component{
 					</ul>
 				</div>
 				 <Switch>
-				  	<Redirect exact from='/details' to={`${props_s.match.url}/number`}/>
+				  	<Redirect exact from={`${props_s.match.url}/`} to={`${props_s.match.url}/number`}/>
 			        <Route path={`${props_s.match.url}/price`} component={Dprice}/>
 			        <Route path={`${props_s.match.url}/number`} component={Dnumber}/>
 			      </Switch>
@@ -122,8 +122,8 @@ const mapStateToProps=(state)=>{
 
  const mapDispatchToProps=(dispatch)=>{
   return {
-		getdetailsData:function(){
-			axios.get('/api/neptune/brand/details/v1?brandId=800061007')
+		getdetailsData:function(data){
+			axios.get('/api/neptune/brand/details/v1?brandId='+data)
 			.then(function(res){
 				console.log(res)
 				dispatch({
@@ -132,8 +132,8 @@ const mapStateToProps=(state)=>{
 				})
 			})
 		},
-		getSize:function(){
-			axios.get('/api/neptune/goods/get_thirdcat_size/v1?brandId=800061007')
+		getSize:function(data){
+			axios.get('/api/neptune/goods/get_thirdcat_size/v1?brandId='+data)
 			.then(function(res){
 				console.log(res)
 			})

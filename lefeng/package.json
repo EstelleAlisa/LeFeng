@@ -5,13 +5,15 @@
   "dependencies": {
     "antd": "^2.13.10",
     "axios": "^0.17.1",
+    "middleware": "^1.0.0",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-chunk": "^1.0.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,6 +29,7 @@
         "^/api": "/api"
       },
       "ws": true
+
     },
     "/users": {
       "target": "http://localhost:8080",

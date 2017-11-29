@@ -31,16 +31,18 @@
 	padding:10px;
 	border-bottom:1px solid #ccc;
 	text-align: left;
+	font-size: 16px;
 
 }
 .cartcom .cart_center li.list_2 p,.cartcom .cart_center li.list_5 p{
 	font-size: 12px;
 }
 .cartcom .cart_center .list_3{
-	height:95px;
+	height:115px;
 }
 .cartcom .cart_center .list_4{
-	height:30px;
+	height:40px;
+	line-height: 40px;
 }
 .cartcom .cart_center .pic{
 	height:95px;
@@ -96,10 +98,10 @@
 }
 
 .cartcom .cart_bottom .list_3{
-	height:95px;
+	height:115px;
 }
 .cartcom .cart_bottom{
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 }
 
 .cartcom .cart_bottom .pic{
@@ -123,6 +125,11 @@
     white-space: nowrap;
     width:100%;
 
+}
+.cartcom .cart_center .det button{
+	width:30px;
+	height:30px;
+	line-height: 30px;
 }
 .cartcom .cart_bottom .det span{
 	display: inline-block;
