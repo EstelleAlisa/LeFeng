@@ -42,16 +42,17 @@ a{
   background:#f9fafb;
 }
 .search .top input{
-  width:75%;
+  width:72%;
   height:30px;
   background:#fff;
   color:#777;
   border:1px solid #ccc;
   border-radius: 5px;
   padding:0 8px;
-      transition: border-color .1s ease-in-out;
+  transition: border-color .1s ease-in-out;
 }
 .search .top h2{
+  display:block;
   height:29px;
   line-height:29px;
   font-size:16px;
@@ -60,6 +61,7 @@ a{
   padding:0 8px;
   border:1px solid #e83068;
   border-radius: 5px;
+  width:50px;
 }
 .search .top a{
   width:25px;

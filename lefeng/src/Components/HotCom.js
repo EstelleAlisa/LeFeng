@@ -28,7 +28,11 @@ class HotUI extends React.Component{
 					
 				</div>	
 				<ul className='things'>
-					<li>aaaaa</li>
+					{
+						props.newVal.map((item, index) => {
+							return <li key={index}>{item}</li>
+						})
+					}
 				</ul>
 			</div>
 		)
@@ -36,7 +40,8 @@ class HotUI extends React.Component{
 }
 const mapStateToProps = (state) => {
 	return{
-		hotList: state.hotList
+		hotList: state.hotList,
+		newVal: state.newVal
 	}
 }
 const mapDispatchToProps = (dispatch) => {

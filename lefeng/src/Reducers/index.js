@@ -19,7 +19,7 @@ import everyReducers from './everyReducers'
 import hotReducers from './hotReducers'
 import searchlistReducers from './searchlistReducers'
 import shoplistReducers from './shoplistReducers'
-import valueReducers from './valueReducers'
+import SearchReducers from './SearchReducers'
 import shopReducers from './shopReducers'
 import numberReducers from './numberReducers'
 import priceReducers from './priceReducers'
@@ -38,7 +38,7 @@ const reducers = combineReducers({
 	hotList: hotReducers,
 	searchList:searchlistReducers,
 	shopList:shoplistReducers,
-	newVal: valueReducers,
+	newVal: SearchReducers,
 	shopItem: shopReducers,
 	numberItem: numberReducers,
 	priceItem: priceReducers,

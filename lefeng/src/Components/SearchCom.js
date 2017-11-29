@@ -17,8 +17,30 @@ import SearchList from './SearchListCom'
 import ShopList from './ShopListCom'
 
 class SearchUI extends Component{
-	
-	
+	constructor() {
+		super();
+		this.handleChange = this.handleChange.bind(this);
+		this.state = {
+			val: ''
+		}
+	}
+	componentDidMount() {
+		
+		
+	}
+	handleChange(e) { 
+		var value = e.target.value; 
+		var error = ""; 
+		if(value.length < 1) {
+		 	error = "介绍不能少于十个字";
+		 	alert('aaa')
+		} 
+		this.setState({
+			val: value
+		})
+		
+		
+	}
 	render() {
 		var props = this.props;
 		var match = this.props.match;
@@ -26,17 +48,22 @@ class SearchUI extends Component{
 
 			<div className='search'>
 				<div className='top'>
-					<input type='text' placeholder='自然堂' 
-					ref='searVal'/>
-					<h2 onClick={() =>{props.checkVal(this.refs.searVal.value)}}>搜索</h2>
-					<Link to='/home'><i class="iconfont">&#xe63a;</i></Link>
+					<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
+					<Link to={`${match.url}/shoplist/`+ 5} className='sss'>
+						<h2 onClick={() =>{props.checkVal()}}>
+							搜索
+						</h2>
+					</Link>
+					<Link to='/home'>
+						<i class="iconfont">&#xe63a;</i>
+					</Link>
 				</div>
 				<Switch>
 		        <Redirect exact from={`${match.url}/`} to={`${match.url}/hot`}/>
 
 		        <Route path={`${match.url}/hot`} component={Hot}/>
 		        <Route path={`${match.url}/searchlist`} component={SearchList}/>
-		        <Route path={`${match.url}/shoplist`} component={ShopList}/>
+		        <Route path={`${match.url}/shoplist/:value`} component={ShopList}/>
 		      </Switch>
 			</div>
 		)
@@ -52,7 +79,7 @@ const mapDispatchToProps = (dispatch) => {
 	return{
 		checkVal: function(data) {
 			dispatch({
-				type:'CHECK_VALUE',
+				type:'CHECK_HISTORY',
 				payload:data
 			})
 		}
