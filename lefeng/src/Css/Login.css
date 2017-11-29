@@ -95,6 +95,9 @@ a{
 	color:#fff;
 	font-size:18px;
 }
+.login .bottom .other{
+	overflow:hidden;
+}
 .login .bottom p.r{
 	padding-top:10px;
 }
