@@ -11,7 +11,9 @@ class Footer extends Component{
     super(); 
     this.state={
     	iflogindata:'',
-    	zhuxiao:''
+    	zhuxiao:'',
+    	login:'',
+    	register:''
     	
     }
   }
@@ -25,18 +27,30 @@ class Footer extends Component{
 			console.log(res)
 			if(res.data.code!=1){
 				that.setState({
-					iflogindata:'登录',
-					zhuxiao:'注册'
+					login:'登录',
+					register:'注册',
+					usern:'',
+    				zhuxiao:''
 				})
 
 			}else{
 				that.setState({
-					iflogindata:res.data.message,
-					zhuxiao:'退出'
+					usern:res.data.message,
+					zhuxiao:'退出',
+					login:'',
+					register:'',
+
 				})
 
 			}
 		})
+  }
+
+  logout(){
+  	axios.get('/users/dellogin')
+  	.then(function(res){
+  		console.log(res)
+  	})
   }
 	render() {
 		var match = this.props.match;
@@ -49,8 +63,11 @@ class Footer extends Component{
 				<Link to='./custorm'>客户端</Link>
 			</div>
 			<div className='right'>
-				<Link to='./login'>{this.state.iflogindata}</Link>
-				<Link to='./register'>{this.state.zhuxiao}</Link>
+				<a href="javascript:;">{this.state.usern}</a>
+				<a href="javascript:;" onClick={this.logout}>{this.state.zhuxiao}</a>
+				<Link to='./login'>{this.state.login}</Link>
+				<Link to='./register'>{this.state.register}</Link>
+				
 			</div>
 		</div>
 		<p className='pFoot'>
