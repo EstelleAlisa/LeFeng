@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class ShopUI extends React.Component{
 	componentDidMount() {
-		this.props.getShopItem();
+		this.props.getShopItem(this.props.match.params.value);
 	}
 	render() {
 		var props = this.props;
@@ -55,10 +55,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return{
-		getShopItem: function() {
-			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85')
+		getShopItem: function(newData) {
+			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=' + newData)
 			.then(function(res) {
-				console.log(res);
 				var shopItem = res.data.data;
 				dispatch({
 					type: 'GET_SHOP',

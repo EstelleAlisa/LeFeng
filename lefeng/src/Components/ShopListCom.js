@@ -28,7 +28,7 @@ class ShopListUI extends React.Component{
 		}
 	}
 	componentDidMount() {
-		this.props.getShopList();
+		this.props.getShopList(this.props.match.params.value);
 	}
 	select(){
 		this.setState({
@@ -68,12 +68,12 @@ class ShopListUI extends React.Component{
 		return(
 			<div className='shoplist'>
 				<nav>
-					<Link to={`${match.url}/price`}>
+					<Link to={`${match.url}/price/${match.params.value}`}>
 						<div className='price same'>
 							<span className='shopSim'>价格</span>
 						</div>
 					</Link>
-					<Link to={`${match.url}/number`}>
+					<Link to={`${match.url}/number/${match.params.value}`}>
 						<div className='number same'>
 							<span className='shopSim'>销量</span>
 						</div>
@@ -84,9 +84,9 @@ class ShopListUI extends React.Component{
 				</nav>
 				<Switch>
 				    <Redirect exact from={`${match.url}/`} to={`${match.url}/shop`}/>
-				    <Route path={`${match.url}/shop`} component={ShopCom}/>
-				    <Route path={`${match.url}/price`} component={PriceCom}/>
-				    <Route path={`${match.url}/number`} component={NumberCom}/>
+				    <Route path={`${match.url}/shop/:value`} component={ShopCom}/>
+				    <Route path={`${match.url}/price/:value`} component={PriceCom}/>
+				    <Route path={`${match.url}/number/:value`} component={NumberCom}/>
 			    </Switch>
 			    <FooterCom></FooterCom>
 				<ReactCSSTransitionGroup
@@ -109,13 +109,13 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
 	return {
-		getShopList: function() {
-			axios.get('/api/neptune/goods/get_thirdcat_size/v1?keyword=%E6%8A%A4%E8%82%A4%E5%A5%97%E8%A3%85')
+		getShopList: function(newData) {
+			axios.get('/api/neptune/goods/get_thirdcat_size/v1?keyword=' + newData)
 			.then(function(res) {
-				console.log('aaa');
+				console.log('yyy');
 				console.log(res);
 				var shopList = res.data.data;
-				console.log('bbb');
+				console.log('lll');
 				dispatch({
 					type:'GET_SHOPLIST',
 					payload: shopList
