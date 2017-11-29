@@ -48,9 +48,9 @@ class DetailComUI extends React.Component{
 			<div className="detail">
 				<div className='top'>
 					
-					<Link to={"/home"}><i class="iconfont">&#xe608;</i></Link>
+					<Link to={"/home"}><i className="iconfont">&#xe608;</i></Link>
 					<h2>{props_1.name}</h2>
-					<Link to='/home'><i class="iconfont">&#xe63a;</i></Link>
+					<Link to='/home'><i className="iconfont">&#xe63a;</i></Link>
 				</div>
 				<div className="bigpic">
 					<img src={props_1.middleImage}/>
@@ -256,7 +256,9 @@ class DetailComUI extends React.Component{
 				</div>
 				<div className="addcart">
 					<Link to="/cart">
-						<span className="left">购物车</span>
+						<span className="left">
+						   <i class="icon iconfont">&#xe502;</i>
+						</span>
 					</Link>
 
 					<span className="right" onClick={this.save}>加入购物车</span>
