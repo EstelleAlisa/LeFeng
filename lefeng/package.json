@@ -6,6 +6,7 @@
     "antd": "^2.13.10",
     "axios": "^0.17.1",
     "middleware": "^1.0.0",
+    "promise": "^8.0.1",
     "react": "^16.1.1",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.1.1",
@@ -29,7 +30,6 @@
         "^/api": "/api"
       },
       "ws": true
-
     },
     "/users": {
       "target": "http://localhost:8080",

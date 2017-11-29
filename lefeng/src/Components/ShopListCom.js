@@ -23,8 +23,10 @@ class ShopListUI extends React.Component{
 		super();
 		this.select=this.select.bind(this);
 		this.del=this.del.bind(this)
+		this.didSelect=this.didSelect.bind(this)
 		this.state={
-			Flag:false
+			Flag:false,
+			nowVlue: ''
 		}
 	}
 	componentDidMount() {
@@ -40,6 +42,13 @@ class ShopListUI extends React.Component{
 			Flag:false
 		})
 	}
+	didSelect(data) {
+		document.querySelector('.didsel').style.border = '1px solid #f00';
+		this.setState({
+			nowVlue: data
+		})
+		this.props.getShopList(this.state.nowVlue);
+	}
 	render() {
 		var props = this.props;
 		var selects=<div className="select_in" >
@@ -53,12 +62,20 @@ class ShopListUI extends React.Component{
 							<li>全部</li>
 							{
 								props.shopList.map((item, index) => {
-									return <li key={index}>{item.thirdCatName}</li>
+									return(
+										<li key={index} className='didsel' onClick={() => {this.didSelect(item.thirdCatName)}}>
+											{item.thirdCatName}
+										</li>	
+									) 
 								})
 							}
 						</ul>
 					</div>
-					<div className="select_bottom">确定</div>
+					<Link to={`${props.match.url}/shop/${this.state.nowVlue}`}>
+						<div className="select_bottom" onClick={this.del}>
+							确定
+						</div>
+					</Link>
 			    </div> ;
 			    if(!this.state.Flag){
 			        selects=null;
@@ -84,7 +101,7 @@ class ShopListUI extends React.Component{
 				</nav>
 				<Switch>
 				    <Redirect exact from={`${match.url}/`} to={`${match.url}/shop`}/>
-				    <Route path={`${match.url}/shop/:value`} component={ShopCom}/>
+				    <Route path={`${match.url}/shop/:value?`} component={ShopCom}/>
 				    <Route path={`${match.url}/price/:value`} component={PriceCom}/>
 				    <Route path={`${match.url}/number/:value`} component={NumberCom}/>
 			    </Switch>

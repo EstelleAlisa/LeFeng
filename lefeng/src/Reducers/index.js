@@ -6,7 +6,6 @@ import detailReducer_2 from './detailReducer_2'
 import detailReducer_3 from './detailReducer_3'
 import detailReducer_4 from './detailReducer_4'
 import priceReducer from './priceReducer'
-
 import ListReducers from './ListReducers'
 import ListReducers2 from './ListReducers2'
 import ListReducers3 from './ListReducers3'

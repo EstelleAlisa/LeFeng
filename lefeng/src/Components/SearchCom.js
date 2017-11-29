@@ -39,8 +39,6 @@ class SearchUI extends Component{
 		this.setState({
 			val: value
 		})
-		
-		console.log(this.state.val)
 	}
 	render() {
 		var props = this.props;
@@ -49,11 +47,11 @@ class SearchUI extends Component{
 
 			<div className='search'>
 				<div className='top'>
-					<Link to={`${match.url}/shop/${this.state.val}`} className='iSear'>
+					<Link to={`${match.url}/searchlist/${this.state.val}`} className='iSear'>
 						<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
 					</Link>
 					<Link to={`${match.url}/shoplist/${this.state.val}`} className='sss'>
-						<h2 onClick={() =>{props.checkVal()}}>
+						<h2 onClick={() =>{props.checkVal(this.state.val)}}>
 							搜索
 						</h2>
 					</Link>
