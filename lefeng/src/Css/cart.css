@@ -42,7 +42,6 @@
 }
 .cartcom .cart_center .list_4{
 	height:40px;
-	line-height: 40px;
 }
 .cartcom .cart_center .pic{
 	height:95px;
@@ -126,7 +125,7 @@
     width:100%;
 
 }
-.cartcom .cart_center .det button{
+.cartcom .cart_center .det button,.cartcom .cart_bottom .det button{
 	width:30px;
 	height:30px;
 	line-height: 30px;
@@ -150,6 +149,7 @@
 .cartcom .cart_bottom ul li{
 	padding:10px 0px;
 	border-bottom:1px solid #ccc;
+	font-size:14px;
 
 }
 .cartcom .cart_bottom h3{
