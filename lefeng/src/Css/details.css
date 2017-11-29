@@ -180,7 +180,9 @@ ul{
 	border-bottom: 10px solid #eeeeee;
 	padding:20px 0;
 	box-sizing: border-box;
-	height:234px;
+	height:448px;
+  font-size: 15px;
+  color:#000;
 }
 .details .select_in .select_center h4{
 	padding: 10px;
@@ -189,7 +191,9 @@ ul{
 	float: left;
 	width:25%;
 	border:1px solid #ccc;
-	margin:10px 10px;
+	margin:10px 13px;
+  font-size:15px;
+  text-align: center;
 }
 .details .select_in .select_bottom{
 	width:90%;

@@ -37,8 +37,12 @@ class DetailsComUI extends React.Component{
 		})
 	}
 	render(){
-		var props=this.props.detailsData;
+		var props_li=this.props.getSizeData;
+
+		var props_d=this.props.detailsData;
 		var props_s=this.props;
+		
+		
 		var selects=<div className="select_in" >
 					<div className="select_top">
 						<span className="de" onClick={this.del}>取消</span>
@@ -47,12 +51,16 @@ class DetailsComUI extends React.Component{
 					<div className="select_center">
 						<h4>分类</h4>
 						<ul>
-							<li>fg</li>
-							<li>fg</li>
-							<li>fg</li>
-							<li>fg</li>
-							<li>fg</li>
-							<li>fg</li>
+							<li>全部</li>
+							{
+								props_li.map((item,index)=>{
+									return (
+										<li key={index}>{item.thirdCatName}</li>
+
+									)
+								})
+							}
+							
 						</ul>
 					</div>
 					<div className="select_bottom">确定</div>
@@ -66,12 +74,12 @@ class DetailsComUI extends React.Component{
 		return (
 			<div className="details">
 				<div className='top'>
-					<Link to='/home'><i class="iconfont">&#xe608;</i></Link>
-					<h2>{props.name}</h2>
-					<Link to='/home'><i class="iconfont">&#xe63a;</i></Link>
+					<Link to='/home'><i className="iconfont">&#xe608;</i></Link>
+					<h2>{props_d.name}</h2>
+					<Link to='/home'><i className="iconfont">&#xe63a;</i></Link>
 				</div>
 				<div className="pic">
-					<img src={props.brandImage}/>
+					<img src={props_d.brandImage}/>
 				</div>
 				<div className="nine">jdsfhksjgiejsngkknvk</div>
 				<div className="navs">
@@ -116,7 +124,9 @@ class DetailsComUI extends React.Component{
 
 const mapStateToProps=(state)=>{
     return {
-		detailsData:state.detailsData
+		detailsData:state.detailsData,
+		getSizeData:state.getSizeData
+
     }
  }
 
@@ -136,6 +146,12 @@ const mapStateToProps=(state)=>{
 			axios.get('/api/neptune/goods/get_thirdcat_size/v1?brandId='+data)
 			.then(function(res){
 				console.log(res)
+				dispatch({
+					type:"SIZE",
+					payload:res.data.data
+				})
+				
+
 			})
 		}
 		

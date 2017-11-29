@@ -30,9 +30,9 @@ class LoginUI extends Component{
 		return(
 			<div className='login'>
 				<div className='top'>
-					<Link to='/home'><i class="iconfont">&#xe608;</i></Link>
+					<Link to='/home'><i className="iconfont">&#xe608;</i></Link>
 					<h2>登录</h2>
-					<Link to='/home'><i class="iconfont">&#xe63a;</i></Link>
+					<Link to='/home'><i className="iconfont">&#xe63a;</i></Link>
 				</div>
 				<div className='bottom'>
 					<input type='text' id="username" placeholder='已验证手机/用户名' className='i1'/><br/>

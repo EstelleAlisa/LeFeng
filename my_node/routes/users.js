@@ -166,8 +166,10 @@ router.post('/deled', function(req, res, next){
 })
 router.get('/dellogin', function(req, res, next) {
   req.session.username=null;
-
-        res.send(222)
+    var result={
+          code:1
+    }
+    res.send(JSON.stringify(result))
 
   
 });
