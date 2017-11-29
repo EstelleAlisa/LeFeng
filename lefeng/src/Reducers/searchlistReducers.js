@@ -4,7 +4,7 @@ export default function(state=[], action) {
 		case 'GET_SEAR':
 			newS = [...state];
 			newS = (action.payload);
-			console.log('aaa');
+			console.log(newS);
 			return newS;
 		default:
 			return state;

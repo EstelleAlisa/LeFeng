@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Router  history={this.props.history}>
+          <Router>
               <div className='real'>
                   <main>
                   <Switch>

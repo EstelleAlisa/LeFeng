@@ -1,10 +1,10 @@
 export default function(state=[], action) {
 	let newS;
 	switch(action.type){
-		case 'GET_HISTORY':
+		case 'CHECK_HISTORY':
 			newS = [...state];
-			newS = action.payload;
-			console.log('FFF');
+			newS.push(action.payload);
+			console.log('mmm');
 			return newS;
 		default:
 			return state;

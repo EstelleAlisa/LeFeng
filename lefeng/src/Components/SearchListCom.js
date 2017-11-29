@@ -5,8 +5,7 @@ import axios from 'axios';
 
 class SearchlistUI extends React.Component{
 	componentDidMount() {
-		console.log(this.props.newVal)
-		this.props.getSear(this.props.newVal);
+		this.props.getSear();
 	}
 	render() {
 		var props = this.props;
@@ -33,8 +32,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return{
 		getSear: function(data) {
-			alert('aaa');
-			axios.get('/api/neptune/search/suggestion/v1?keyword=' + data +'&count=15')
+			axios.get('/api/neptune/search/suggestion/v1?keyword=z&count=15')
 			.then(function(res) {
 				console.log(res);
 				var searchList = res.data.data;
