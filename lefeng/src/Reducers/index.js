@@ -24,6 +24,8 @@ import shopReducers from './shopReducers'
 import numberReducers from './numberReducers'
 import priceReducers from './priceReducers'
 import SizeReducer  from './SizeReducer'
+import descripReducer from './descripReducer'
+import pmsListReducer from './pmsListReducer'
 
 const reducers = combineReducers({
 	slide: ListReducers,
@@ -48,7 +50,9 @@ const reducers = combineReducers({
 	buyData_2:detailReducer_4,
 	detailsData:detailsReducer,
 	priceData:priceReducer,
-	getSizeData:SizeReducer
+	getSizeData:SizeReducer,
+	descrip:descripReducer,
+	pmsList:pmsListReducer
 })
 
 export default reducers;

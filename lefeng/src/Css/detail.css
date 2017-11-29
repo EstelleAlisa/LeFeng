@@ -21,7 +21,7 @@
 	overflow: hidden;
 }
 .detail .top i{
-	font-size:20px;
+	font-size:30px;
 	color:#aaa;
 	font-weight:600;
 }
@@ -84,13 +84,14 @@
 	padding:0 5%;
 }
 .detail .appraise li span{
-	font-size: 14px;
+	font-size: 18px;
 }
 .detail .childpostion{
 	margin-top:15px;
 	height:37px;
 	background:#fff;
 	border:1px solid #ccc;
+	font-size: 14px;
 }
 .detail .childpostion div{
 	width:50%;
@@ -122,9 +123,11 @@
 	left:15px;
 	top:20px;
 	background:#ff0056;
+
 }
 .detail table{
 	border-spacing: 0;
+	font-size: 16px;
 }
 .detail .information_1 th{
 	width:33%;
@@ -132,6 +135,7 @@
 	border:1px solid #ccc;
 	padding:10px 5px;
 	background:#f7f7f7;
+
 }
 .detail .information_1 td{
 	width:66%;
@@ -147,6 +151,7 @@
 	line-height: 40px;
 	text-align: center;
 	margin-top:10px;
+	font-size: 18px;
 
 }
 .detail .instruction_1{
@@ -159,15 +164,18 @@
 }
 .detail .instruction_1 ul li p{
 	text-align: left;
+	font-size: 16px;
 }
 .detail .instruction_1 ul li h3{
 	height:40px;
 	line-height: 40px;
+	font-size: 18px;
 }
 
 .detail .buy{
 	height:70px;
 	line-height:70px;
+	font-size: 18px;
 }
 .detail .like{
 	background:#fff;
@@ -193,15 +201,15 @@
 }
 .detail .like dl dd span.l{
 	padding-right:5px;
-		font-size: 14px;
+		font-size: 16px;
 }
 .detail .like dl dd span.r{
-		width:50%;
+		width:55%;
 		text-align: left;
 		overflow: hidden;
 		text-overflow:ellipsis;
 		white-space: nowrap;
-		font-size: 14px;
+		font-size: 16px;
 
 }
 .detail .addcart{
@@ -245,4 +253,19 @@
 .man{
 	background:#fff;
 	margin:10px 0;
+	text-align: left;
+	
+	padding:10px 10px;
+}
+.man p{
+	font-size: 14px;
+}
+.man p span{
+	display: inline-block;
+	padding:3px;
+	background:#fc3170;
+	color:#fff;
+	margin-right:10px;
+	margin-top:10px;
+	border-radius: 5px;
 }

@@ -9,6 +9,8 @@ import {
 class DetailComUI extends React.Component{
 	componentDidMount() {
 		this.props.getdetail(this.props.match.params.did)
+		this.props.getdetailS(this.props.match.params.did)
+		this.props.getpmsList(this.props.match.params.did)
 		this.props.	getbuy()
 		this.props.	getbuy_1()
 		this.props.	getbuy_2()
@@ -36,14 +38,12 @@ class DetailComUI extends React.Component{
 		})
 	}
 	render(){
-		var props_1=this.props.detailData;
-		console.log(props_1)
-		 var descrip=props_1.descriptions;
-
-		 console.log(descrip)
+		var props_1=this.props.detailData;	
 		var props_2=this.props.buyData;
-		var props_3=this.props.buyData_1
-		var props_4=this.props.buyData_2
+		var props_3=this.props.buyData_1;
+		var props_4=this.props.buyData_2;
+		var props_5=this.props.descrip;
+		var props_6=this.props.pmsList;
 		return (
 			<div className="detail">
 				<div className='top'>
@@ -59,7 +59,7 @@ class DetailComUI extends React.Component{
 				<div className="introduce">
 					<p className="p1">
 						<span className="globa">蜂购全球</span>
-						<span>{props_1.name}</span>
+						<span style={{fontSize:'14px'}}>{props_1.name}</span>
 						<span></span>
 					</p>
 					<p className="p2">
@@ -69,7 +69,18 @@ class DetailComUI extends React.Component{
 					</p>
 				</div>
 				<div className="man">
-					
+					{
+						props_6.map((item,index)=>{
+							return(
+								
+									<p key={index}>
+										<span>{item.type}</span>
+										{item.msg}
+									</p>
+								
+							)
+						})
+					}
 				</div>
 				<div className="appraise">
 					<ul>
@@ -124,39 +135,19 @@ class DetailComUI extends React.Component{
 					</div>
 					<table>
 						<tbody>
-					
-							<tr>
-								<th>商品品牌:</th>
-								<td>{props_1.brandStoreName}</td>
-							</tr>
-							<tr>
-								<th>商品名称:</th>
-								<td>{props_1.name}</td>
-							</tr>
-							<tr>
-								<th>备注:</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th>有效期:</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th>规格:</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th>特点描述:</th>
-								<td>{props_1.channelFeatureList}</td>
-							</tr>
-							<tr>
-								<th>产地:</th>
-								<td></td>
-							</tr>
-							<tr>
-								<th>货号:</th>
-								<td>{props_1.sn}</td>
-							</tr>
+							{
+								props_5.map((item,index)=>{
+									return (
+										<tr key={index}>
+											<th>{item.name}</th>
+											<td>{item.value}</td>
+										</tr>
+
+									)
+								})
+							}
+						
+							
 						</tbody>
 					</table>
 					<div className="lookpic">点击查看图文详情</div>
@@ -257,7 +248,7 @@ class DetailComUI extends React.Component{
 				<div className="addcart">
 					<Link to="/cart">
 						<span className="left">
-						   <i class="icon iconfont">&#xe502;</i>
+						   <i className="icon iconfont">&#xe502;</i>
 						</span>
 					</Link>
 
@@ -269,23 +260,15 @@ class DetailComUI extends React.Component{
 		)
 	}
 }
-// 						{
-// 							descrip.map((item,index)=>{
-// 								return (
-// 									<tr key={item.id}>
-// 										<th>商品品牌:</th>
-// 										<td>{props_1.brandStoreName}</td>
-// 									</tr>
-// 								)
-// 							})
-// 						}
 
 const mapStateToProps=(state)=>{
     return {
       detailData:state.detailData,
       buyData:state.buyData,
       buyData_1:state.buyData,
-      buyData_2:state.buyData
+      buyData_2:state.buyData,
+      descrip:state.descrip,
+      pmsList:state.pmsList,
     }
 }
 
@@ -299,6 +282,26 @@ const mapDispatchToProps=(dispatch)=>{
 			dispatch({
 				type:"DETAIL",
 				payload:res.data.data.goods
+			})
+  		})
+  	},
+  	getdetailS:function(did){
+  		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
+  		.then(function(res){
+		console.log(res.data.data.goods.descriptions)
+			dispatch({
+				type:"DES",
+				payload:res.data.data.goods.descriptions
+			})
+  		})
+  	},
+  	getpmsList:function(did){
+  		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
+  		.then(function(res){
+		console.log(res.data.data.goods.pmsList)
+			dispatch({
+				type:"PM",
+				payload:res.data.data.goods.pmsList
 			})
   		})
   	},
