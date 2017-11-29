@@ -219,7 +219,7 @@ ul{
     margin-right: -85%;
     transition-duration:500ms
 }
-.amit-enter-active{
+.amit-enter-active{                                                                                
     margin-right: 0
 }
 .amit-leave{

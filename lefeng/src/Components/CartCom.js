@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import '../Css/cart.css';
+import {createBrowserHistory} from 'history'
 import {
   Link
 } from 'react-router-dom'
@@ -10,8 +11,17 @@ class CartCom extends React.Component{
     super(); 
     this.state={
     	cartdata:[],
-    	carteddata:[]
+    	count:'1',
+    	carteddata:[],
+
     }
+    this.history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
+    
   }
   componentDidMount() {
   	this.getcart();
@@ -25,6 +35,7 @@ class CartCom extends React.Component{
 		.then(function(res){
 			console.log(res)
 		})
+		this.history.push('/cart') 
   }
   
   getcart(){
@@ -39,26 +50,27 @@ class CartCom extends React.Component{
 		})
   }
   
-  deleting(id){ 
+  deleting(id){
+	
   		console.log('bbb')
-  	axios.post('users/del',{
-  		id:id
-  	})
-  	.then(function(res){
-  		console.log(res) 		
-  	});
- 		 	
+	  	axios.post('users/del',{
+	  		id:id
+	  	})
+	  	.then(function(res){
+	  		console.log(res)		
+	  	});
+ 		this.history.push('/cart') 
   }
   getcarted(){
   		var that=this;
-  	axios.post('/users/added')
-		.then(function(res){
-			console.log(res)
-			that.setState({
-				carteddata:res.data
-			})
+	  	axios.post('/users/added')
+			.then(function(res){
+				console.log(res)
+				that.setState({
+					carteddata:res.data
+				})
 
-		})
+		}) 
   }
   deleted(id){
   		console.log('ccc')
@@ -68,12 +80,31 @@ class CartCom extends React.Component{
   	.then(function(res){
   		console.log(res)
   	})
+  	this.history.push('/cart') 
   }
+  productdel(dd){
+		dd--;
+		if(dd<=1){
+			dd=1;
+		}
+		console.log(dd)
+		this.setState({
+			count:dd
+		})
+  }
+  productadd(cc){
+  	cc++;
+  	console.log(cc)
+		this.setState({
+			count:cc
+		})
+  }
+
 
 
 	render(){
 		var mepty=<div className="empty">
-						<p><i class="icon iconfont">&#xe502;</i></p>
+						<p><i className="icon iconfont">&#xe502;</i></p>
 						<p>购物车为空哦！</p>
 						<p>赶紧抢点东西犒劳自己吧~</p>
 						<p><Link to="/home"><span>去首页逛逛</span></Link></p>
@@ -86,7 +117,7 @@ class CartCom extends React.Component{
 		return (
 			<div className="cartcom">
 				<div className='top'>
-					<Link to="/home"><i class="iconfont">&#xe608;</i></Link>
+					<Link to="/home"><i className="iconfont">&#xe608;</i></Link>
 					<h2>购物车</h2>
 					<i></i>
 				</div>
@@ -110,21 +141,21 @@ class CartCom extends React.Component{
 											<p className="p1">{item.product_name}</p>
 											<p>￥{item.price}</p>
 											<p>
-												<span>-</span>
-												<span>1</span>
-												<span>+</span>
+												<span onClick={()=>this.productdel(this.state.count,item._id)}>-</span>
+												<span>{this.state.count}</span>
+												<span onClick={()=>this.productadd(this.state.count,item._id)}>+</span>
 												<button  className="r" onClick={()=>this.deleting(item._id)}>X</button>
 											</p>
 										</aside>
 									</li>
 									<li className="list_4">
 										<p>
-											<span className="l">商品合计</span><span className="r">￥</span>
+											<span className="l">商品合计</span><span className="r">￥<span className="totle">{item.price*this.state.count}</span></span>
 										</p>
 									</li>
 									<li  className="list_5">
-										<p><span className="redd">减慢</span>kjsfi金块三地警方及</p>
-										<p><span className="redd">减慢</span>kjsfi金块三地警方及</p>
+										<p><span className="redd">减满</span>直接电话回复</p>
+										<p><span className="redd">减满</span>瑞合法科技型初创</p>
 									</li>
 								</ul>
 							)
