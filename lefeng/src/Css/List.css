@@ -78,6 +78,7 @@ img{
 }
 .home .five div{
   width:20%;
+  padding:10px 0;
 }
 .home .five img{
   width:100%;
@@ -231,7 +232,6 @@ img{
     left:59%;
 }
 .home .special .bigbox{
-    margin-top:20px;
 }
 .home .special .bigbox .boxA{
   height:182px;
@@ -325,7 +325,7 @@ img{
   position: relative;;
 }
 .home .every .shopInfo{
-  margin-top:30px;
+  margin-bottom:2px;
   width:49.8%;
   height:303px;
   padding:10px;
@@ -344,7 +344,7 @@ img{
 .home .every span.eve{
   width:100%;
   display:block;
-  height:20px;
+  height:50px;
   line-height:20px;
   padding-top:20px;
   padding-bottom:5px;
