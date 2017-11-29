@@ -29,6 +29,15 @@
         "^/api": "/api"
       },
       "ws": true
+
+    },
+    "/users": {
+      "target": "http://localhost:8080",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/users": "/users"
+      },
+      "ws": true
     }
   }
 }

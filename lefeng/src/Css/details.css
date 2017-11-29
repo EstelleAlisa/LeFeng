@@ -1,0 +1,234 @@
+.details .top{
+	padding:0 20px;
+	display: flex;
+	justify-content: space-between;
+	height:47px;
+	line-height: 47px;
+	box-shadow: -10px 0 10px #000;
+	background:#f9fafb;
+}
+
+.details .top h2{
+	font-size:18px;
+	color:#777;
+	overflow: hidden;
+}
+.details .top i{
+	font-size:20px;
+	color:#aaa;
+	font-weight:600;
+}
+.details .pic{
+	height:165px;
+	width:100%;
+}
+.details .pic img{
+	width:100%;
+	height:100%;
+}
+
+.details .nine{
+	height:30px;
+	background:#000;
+	width:100%;
+	color:#fff;
+	text-align: left;
+	line-height: 30px;
+}
+.details .navs{
+	height:40px;
+	line-height: 40px;
+}
+.details .navs li{
+	width:32.6%;
+	border:1px solid #ccc;
+	text-align: center;
+}
+ul{
+	list-style: none;
+}
+
+
+
+
+.dprice{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width:100%;
+  margin-bottom: 5px;
+
+}
+.dprice .shopInfo{
+  margin-top:2px;
+  width:49.5%;
+  height:303px;
+  padding:10px;
+  background:#f0f;
+  background:#fff;
+
+}
+.dprice .shopInfo .imgInfo{
+  width:100%;
+  height:203px;
+}
+.dprice .shopInfo .imgInfo img{
+  width:100%;
+  height:100%;
+}
+
+.dprice span.eve{
+  width:100%;
+  display:block;
+  height:20px;
+  line-height:20px;
+  padding-top:20px;
+  padding-bottom:5px;
+  font-size:16px;
+  color: #888;
+}
+.dprice span.eve::before{
+    content: "";
+    width:5px;
+    height:5px;
+    background:#888;
+    border-radius: 50%;
+    position: absolute;
+    top:28px;
+    left:40%;
+}
+.dprice span.eve::after{
+    content: "";
+    width:5px;
+    height:5px;
+    background:#888;
+    border-radius: 50%;
+    position: absolute;
+    top:28px;
+    left:59%;
+}
+.dprice .shopInfo .nameInfo{
+  width:100%;
+  height:37px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding:10px 0;
+
+}
+.dprice .shopInfo .nameInfo .name1{
+  font-size: 16px;
+  font-weight: 900;
+}
+.dprice .shopInfo .nameInfo .name2{
+  font-size: 15px;
+}
+.dprice .shopInfo .priceInfo{
+    color:#000;
+    height:27px;
+    text-align: left;
+    font-size:16px;
+    position: relative;
+}
+.dprice .shopInfo .priceInfo .now{
+    font-size:28px;
+    margin-right:10px;
+    font-weight:700;
+}
+.dprice .shopInfo .priceInfo .old{
+    font-size:20px;
+    color:#aaa;
+    text-decoration:line-through;
+}
+.dprice .shopInfo .priceInfo .priceImg{
+  position: absolute;
+  right:2px;
+  top:8px;
+  width:33px;
+  height:33px;
+}
+
+
+
+
+
+.details .select_in{
+	height:100%;
+	width:85%;
+	background:#fff;
+	position: fixed;
+	right:0;
+	top:0;
+	border:1px solid #ccc;
+	text-align: left;
+
+}
+.details .select_in .select_top{
+	height:70px;
+	border-bottom: 10px solid #eeeeee;
+	line-height: 70px;
+
+}
+.details .select_in .select_top span{
+	width:40%;
+	display: inline-block;
+	text-align: left;
+	padding-left:10px; 
+}
+.details .select_in .select_center{
+	border-bottom: 10px solid #eeeeee;
+	padding:20px 0;
+	box-sizing: border-box;
+	height:234px;
+}
+.details .select_in .select_center h4{
+	padding: 10px;
+}
+.details .select_in .select_center li{
+	float: left;
+	width:25%;
+	border:1px solid #ccc;
+	margin:10px 10px;
+}
+.details .select_in .select_bottom{
+	width:90%;
+	height:40px;
+	background:red;
+	color:#fff;
+	text-align: center;
+	line-height: 40px;
+	margin-top:30px;
+	border-radius: 20PX;
+	margin-left:5%;
+}
+.amit-enter{
+    margin-right: -85%;
+    transition-duration:500ms
+}
+.amit-enter-active{
+    margin-right: 0
+}
+.amit-leave{
+    margin-right: 0;
+    transition-duration:500ms
+}
+.amit-leave-active{
+    margin-right: -85%;
+}
+
+
+.active{
+	border:1px solid red;
+	display: inline-block;
+	width:100%;
+}
+
+
+
+
+
+
+
+
+

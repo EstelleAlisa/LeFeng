@@ -3,6 +3,11 @@ import './App.css';
 import './Css/List.css'
 import LoginCom from './Components/LoginCom';
 import RegisterCom from './Components/RegisterCom';
+
+import DetailCom from './Components/DetailCom';
+import DetailsCom from './Components/DetailsCom';
+import CartCom from './Components/CartCom';
+
 import ListCom from './Components/ListCom';
 import SearchCom from './Components/SearchCom';
 import {
@@ -23,8 +28,15 @@ class App extends Component {
                       <Redirect exact from='/' to='/home'/>
                       <Route path='/home' component={ListCom}/>
                       <Route path='/login' component={LoginCom}/>
+                      <Route path='/detail/:did' component={DetailCom}/>
+                      <Route path='/cart' component={CartCom}/>
+                      <Route path='/details/:dsid' component={DetailsCom}/>
                       <Route path='/register'  component={RegisterCom}/>
+
+
+
                       <Route path='/search'  component={SearchCom}/>
+
                   </Switch>
                   </main>
               </div>

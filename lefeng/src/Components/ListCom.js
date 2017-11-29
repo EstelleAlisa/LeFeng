@@ -45,7 +45,7 @@ class ListUI extends Component{
 					{
 						props.slide.map(function(item, index) {
 							return(
-								<Link to={'/detail/' + item.bannerId}>
+								<Link to={'/details/' + item.bannerId}>
 								<div key={item.bannerId}><img src={item.imgFullPath} alt=''/></div>
 								</Link>
 							) 
@@ -95,7 +95,7 @@ class ListUI extends Component{
 					{
 						props.hanList.map((item, index) => {
 							return(
-								<Link to={'/detail/'+item.bannerid}>
+								<Link to={'/details/'+item.bannerid}>
 								<div key={item.bannerid}><img src={item.imgFullPath}/></div>
 								</Link>
 							) 
@@ -108,7 +108,7 @@ class ListUI extends Component{
 							return(
 								<div>
 									<span>{item.pictitle}</span>
-									<Link to={'/detail/'+item.bannerid}>
+									<Link to={'/detail/'+item.gid}>
 									<div key={item.bannerid} className='buy'><img src={item.imgFullPath}/></div>
 									</Link>
 								</div>
@@ -123,7 +123,7 @@ class ListUI extends Component{
 					{
 						props.slide3.map(function(item, index) {
 							return(
-								<Link to={'/detail/'+item.bannerId}>
+								<Link to={'/detail/'+item.gid}>
 								<div className='outBox' key={item.bannerId}>
 									<img src={item.imgFullPath}alt=''/>
 								</div>
@@ -139,7 +139,7 @@ class ListUI extends Component{
 						props.specialList.map((item, index) => {
 							return(
 								<div className='bigbox' key={index}>
-								<Link to={'/detail/'+item.bid}>
+								<Link to={'/details/'+item.bid}>
 									<div className='boxA'>
 										<img src={item.brandImage} alt=''/>
 									</div>
@@ -151,7 +151,7 @@ class ListUI extends Component{
 													return(
 														
 														<div className='boxC' key={index}>
-														<Link to={'/detail/' + item.brandId}>
+														<Link to={'/detail/' + item.gid}>
 															<div className='boxD'>
 																<img src={item.image} alt='' />
 															</div>
@@ -175,7 +175,7 @@ class ListUI extends Component{
 						props.finaList.map((item, index) => {
 							return(
 								<div className='end'>
-								<Link to={'/detail/' + item.bid}>
+								<Link to={'/details/' + item.bid}>
 									<div className='finaPic'>
 										<img src={item.brandImage} alt=''/>
 									</div>
@@ -204,7 +204,7 @@ class ListUI extends Component{
 						props.everyList.map((item, index) => {
 							return(
 								<div className='shopInfo' key={index}>
-								<Link to={'/detail/' + item.goods.brandId}>
+								<Link to={'/detail/' + item.goods.gid}>
 									<div className='imgInfo'>
 										<img src={item.goods.image} alt='' />
 									</div>

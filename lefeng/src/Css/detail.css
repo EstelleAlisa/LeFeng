@@ -1,0 +1,241 @@
+.detail{
+
+}
+.detail{
+	width:100%;
+	height:100%;
+}
+.detail .top{
+	padding:0 20px;
+	display: flex;
+	justify-content: space-between;
+	height:47px;
+	line-height: 47px;
+	box-shadow: -10px 0 10px #000;
+	background:#f9fafb;
+}
+
+.detail .top h2{
+	font-size:18px;
+	color:#777;
+	overflow: hidden;
+}
+.detail .top i{
+	font-size:20px;
+	color:#aaa;
+	font-weight:600;
+}
+
+.detail .bigpic img{
+	height:255px;
+	width:100%;
+}
+.detail .introduce{
+	/*height:93px;*/
+	border-bottom: 1px solid #ccc;
+	background:#fff;
+}
+.detail .introduce p{
+	text-align: left;
+	line-height: 45px;
+	padding: 0 15px;
+}
+.detail .introduce .p1 .globa{
+	height:17px;
+	width:62px;
+	background:#ff9000;
+	color:#fff;
+	font-size: 14px;
+	padding: 0 10px;
+
+
+}
+.detail .introduce .p2 .pricenow{
+	font-size: 30px;
+	color:#fc2064;
+}
+.detail .introduce .p2 .priceold{
+	font-size: 18px;
+	color:#909090;
+	text-decoration:line-through;
+}
+
+
+.detail .appraise{
+	margin-top:15px;
+}
+.detail .appraise li{
+	height:72px;
+	line-height: 36px;
+	border-bottom: 1px solid #ccc;
+	background:#fff;
+	padding: 0 15px;
+	text-align: left;
+}
+.detail .appraise li.list_1{
+	height:42px;
+	border-top: 1px Solid #ccc;
+	line-height: 42px;
+}
+.detail .appraise li .agree{
+	color:#fc2064;
+}
+.detail .appraise li .padd{
+	padding:0 5%;
+}
+.detail .appraise li span{
+	font-size: 14px;
+}
+.detail .childpostion{
+	margin-top:15px;
+	height:37px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+.detail .childpostion div{
+	width:50%;
+	height:100%;
+	text-align: center;
+	line-height: 37px;
+
+}
+.detail .information_1 .top_1{
+	height:67px;
+	text-align: left;
+	line-height: 30px;
+	padding-left:20px; 
+}
+.detail .information_1{
+	padding:15px;
+	background:#fff;
+	position: relative;
+
+}
+.detail .information_1 .top_1 span{
+	color:#ff0056;
+	font-size: 16px;
+}
+.detail .information_1 .posto{
+	height:50px;
+	width:3px;
+	position: absolute;
+	left:15px;
+	top:20px;
+	background:#ff0056;
+}
+.detail table{
+	border-spacing: 0;
+}
+.detail .information_1 th{
+	width:33%;
+	padding-left:5px;
+	border:1px solid #ccc;
+	padding:10px 5px;
+	background:#f7f7f7;
+}
+.detail .information_1 td{
+	width:66%;
+	padding-left:5px;
+	border:1px solid #ccc;
+}
+.detail .information_1 table{
+	width:100%;
+}
+.detail .information_1 .lookpic{
+	height:40px;
+	width: 100%;
+	line-height: 40px;
+	text-align: center;
+	margin-top:10px;
+
+}
+.detail .instruction_1{
+	background:#fff;
+	padding:15px;
+	display: none;
+}
+.detail .instruction_1 ul{
+	list-style: none;
+}
+.detail .instruction_1 ul li p{
+	text-align: left;
+}
+.detail .instruction_1 ul li h3{
+	height:40px;
+	line-height: 40px;
+}
+
+.detail .buy{
+	height:70px;
+	line-height:70px;
+}
+.detail .like{
+	background:#fff;
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 50px;
+}
+.detail .like dl{
+	width:50%;
+	border:1px solid #ccc;
+	height:233px;
+	box-sizing:border-box;
+	padding:10px;
+}
+.detail .like dl dt{
+	height:186px;
+	width:100%;
+}
+.detail .like dl dt img{
+	width:100%;
+	height:100%;
+	border:0;
+}
+.detail .like dl dd span.l{
+	padding-right:5px;
+		font-size: 14px;
+}
+.detail .like dl dd span.r{
+		width:50%;
+		text-align: left;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
+		font-size: 14px;
+
+}
+.detail .addcart{
+	width:100%;
+	height:50px;
+	position: fixed;
+	bottom: 0;
+	left:0;
+	margin-top:50px;
+	z-index: 2;
+	line-height: 50px;
+}
+.detail .addcart .left{
+	width:70%;
+	text-align: left;
+	display: inline-block;
+	background:#4c4c4c;
+	color:#fff;
+	font-size: 20px;
+
+}
+	
+
+.detail .addcart .right{
+	width:30%;
+	background:red;
+	text-align: center;
+	display: inline-block;
+	color:#fff;
+}
+
+
+
+.man{
+	background:#fff;
+	margin:10px 0;
+}
