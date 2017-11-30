@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import '../Css/ShopList.css';
 import axios from 'axios';
+import {
+  	Link
+} from 'react-router-dom';
 
 class PriceUI extends React.Component{
 	componentDidMount() {
@@ -10,15 +13,16 @@ class PriceUI extends React.Component{
 	render() {
 		var props = this.props;
 		return(
+					{
 			<div className='searShop'>
 				<ul>
-					{
 						props.priceItem.map((item, index) => {
 							return(
-								<li key={index}>
-								<div className='shop'>
-									<img src={item.goods.image} class='shop' alt=''/>
-								</div>
+								<Link to={'/detail/' + item.goods.gid} key={index}>	
+									<li key={index}>
+									<div className='shop'>
+										<img src={item.goods.image} class='shop' alt=''/>
+									</div>
 									
 									<div class="right">
 										<p class="p1">
@@ -38,8 +42,9 @@ class PriceUI extends React.Component{
 											</span>
 											<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAMAAAArteDzAAAAyVBMVEUAAAD/gar/hKr/hKz/gar/////hKz/gav/gKr/h63/m7b/gKv/gKv/gar/gav/jK//gKr/gKr/gqv/gqv/gKr/gKv/gav/gav/gqz/gqv/hKz/g63/hKz/i63/gar/gKr/gKv/gKv/gKv/gav/gqv/g6z/g6v/haz/hqz/trb/gqz/gar/gav/hLD/gqv/gKr/8/f/0uH/tc7/gqv/4+3/w9b/scv/ocD/mrv/kLT/ydv/6/L/6vH/3Of/2OT/vNL/qMX/krb/jLJiP+PHAAAAL3RSTlMASzY09gEm+/IZB4PTy2kO5N3Xwbezd29jWD8vHxTprZ2YkX5RRDoqIwPupoodX4kG7iAAAAInSURBVFjD7djZbuJAFATQMmCMbcK+DTthT0I6xIEEkln//6NGFwdpEFiuRj0vMz7PraLdt9QYkEgk/lN2NytWHsxx8yoU9AePRZhxq/6Q83swYahO9KcwoJM7TQ3GMKA3+SJa41omjPVhUnEc7roAoxY3EprJwqjiIbUKs3olSU3BLEtC72GYHEDOhlkF2WoaZs0ltJEipLseSEtH5q84FX8BSkUWK5bjU9utK6XuFK/mkZehozTcs+Pfrwn7519KtBFrKuvWT5T3V1lcR6yurNs8kd7kBoo/VVvu1S0bupctdLhOvbKh3yR0xnVqx4auydAH+apiQ79LaI/s1IvGoEow26kXtv0rjU5tZa0FmOzUV8ks2SDk2U597CS0CcaA7NT7m2Tml2A8yFpiSD9lnTMDpUV1ahMo0QKnHd+pj81O883LVTKp50jbH4fDpId07BSnb4GXpyKDYREaBkRkZpTFEd+pTKRcuXprneyS7hS9EZ1OPcKsoiMvCX/jfdJJg8YfasmFUV5ZUsuW4VEFSlT9iRWjA15TsYY6qQ6bugAvlSdDV9BgTwY5ItOHJtvtpGO4+GfNG6NmxGx7hdF4his0pFWZAi6w+jKj0RK6JuogaONM97MWjauuKlGL/I9I/5ex56jQHc5U1ae5bkePzS/jTO0Yqt3SevSN0Tj7PFY2Ez79hd14lXCGU2hLy5Vyc/HYXHmMkoUr2Fmriwiu1VkikUic+A0oSSO0LAB34wAAAABJRU5ErkJggg==" alt=''/>
 										</p>
-								</div>
-							</li>
+										</div>
+									</li>
+								</Link>
 							)
 						})
 					}
@@ -56,7 +61,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return{
 		getPriceItem: function(newData) {
-			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=' + newData)
+			axios.get('/api/neptune/search/search_by_keyword/v1?keyword=' + newData +'&sort=%7B%22vipshopPrice%22%3A%22asc%22%7D')
 			.then(function(res) {
 				console.log(res);
 				var priceItem = res.data.data;

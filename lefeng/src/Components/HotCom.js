@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import '../Css/Hot.css';
 import axios from 'axios';
+import {
+  	Link
+} from 'react-router-dom';
 
 class HotUI extends React.Component{
 	componentDidMount() {
@@ -18,7 +21,11 @@ class HotUI extends React.Component{
 				<ul className='things'>
 				{
 					props.hotList.map((item, index) => {
-						return <li key={index}>{item.word}</li>
+						return(
+							<Link to={'shoplist/' + item.word} key={index}>
+								<li>{item.word}</li>
+							</Link>
+						) 
 					})
 				}
 				</ul>

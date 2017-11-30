@@ -20,9 +20,9 @@ class SearchlistUI extends React.Component{
 					{
 						props.searchList.map((item, index) => {
 							return(
-								// <Link to={'/search/shoplist/shop/' + item}  >
+								 <Link to={'/search/shoplist/' + item}  >
 									<li key={index}>{item}</li>	
-								// </Link>
+								 </Link>
 								
 							) 
 						})
