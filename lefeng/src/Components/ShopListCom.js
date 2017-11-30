@@ -104,7 +104,7 @@ class ShopListUI extends React.Component{
 				</nav>
 				<Switch>
 				    <Redirect exact from={`${match.url}/`} to={`${match.url}/shop`}/>
-				    <Route path={`${match.url}/shop/:value?`} component={ShopCom}/>
+				    <Route path={`${match.url}/shop/:value`} component={ShopCom}/>
 				    <Route path={`${match.url}/price/:value`} component={PriceCom}/>
 				    <Route path={`${match.url}/number/:value`} component={NumberCom}/>
 			    </Switch>

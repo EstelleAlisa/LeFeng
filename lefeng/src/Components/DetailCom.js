@@ -144,7 +144,6 @@ class DetailComUI extends React.Component{
 											<th>{item.name}</th>
 											<td>{item.value}</td>
 										</tr>
-
 									)
 								})
 							}

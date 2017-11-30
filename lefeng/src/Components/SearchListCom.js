@@ -8,20 +8,21 @@ import {
 
 class SearchlistUI extends React.Component{
 	componentDidMount() {
-		if(this.props.searchList.length == 0){
-			this.props.getSear(this.props.match.params.value);
-		}
+		// if(this.props.searchList.length == 0){
+		// 	this.props.getSear(this.props.match.params.value);
+		// }
 		
 	}
+
 	render() {
 		var props = this.props;
+		console.log(props);
 		var match = this.props.match;
-		console.log(match)
 		return(
 			<div className='searchlist'>
 				<ul>
 					{
-						props.searchList.map((item, index) => {
+						props.currentList.map((item, index) => {
 							return(
 								 <Link to={'/search/shoplist/' + item}  >
 									<li key={index}>{item}</li>	
@@ -37,7 +38,8 @@ class SearchlistUI extends React.Component{
 }
 const mapStateToProps = (state) => {
 	return{
-		searchList: state.searchList	
+		searchList: state.searchList,
+		currentList: state.currentList
 	}
 }
 const mapDispatchToProps = (dispatch) => {
@@ -45,7 +47,6 @@ const mapDispatchToProps = (dispatch) => {
 		getSear: function(newData) {
 			axios.get('/api/neptune/search/suggestion/v1?keyword=' + newData +'&count=15')
 			.then(function(res) {
-				console.log(res);
 				var searchList = res.data.data;
 				dispatch({
 					type: 'GET_SEAR',

@@ -88,15 +88,15 @@ class Footer extends Component{
 			<div className='footer'>
 		<div className='foot'>
 			<div className='left'>
-				<Link to='./home'>首页</Link>
+				<Link to='/home'>首页</Link>
 				<a href="javascript:;" onClick={this.cartiflogin}>购物车</a>
-				<Link to='./custorm'>客户端</Link>
+				<Link to='/custorm'>客户端</Link>
 			</div>
 			<div className='right'>
 				<a href="javascript:;">{this.state.usern}</a>
 				<a href="javascript:;" onClick={this.logout}>{this.state.zhuxiao}</a>
-				<Link to='./login'>{this.state.login}</Link>
-				<Link to='./register'>{this.state.register}</Link>
+				<Link to='/login'>{this.state.login}</Link>
+				<Link to='/register'>{this.state.register}</Link>
 				
 			</div>
 		</div>

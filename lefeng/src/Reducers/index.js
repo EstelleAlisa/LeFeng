@@ -26,6 +26,7 @@ import SizeReducer  from './SizeReducer'
 import descripReducer from './descripReducer'
 import pmsListReducer from './pmsListReducer'
 import allImagesReducer from './allImagesReducer'
+import ChangeValReducers from './ChangeValReducers'
 
 const reducers = combineReducers({
 	slide: ListReducers,
@@ -54,6 +55,7 @@ const reducers = combineReducers({
 	descrip:descripReducer,
 	pmsList:pmsListReducer,
 	allImages:allImagesReducer,
+	currentList: ChangeValReducers
 })
 
 export default reducers;

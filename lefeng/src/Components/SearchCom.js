@@ -3,6 +3,7 @@ import '../Css/Search.css';
 import {connect} from 'react-redux';
 import {Carousel } from 'antd';
 import { BackTop } from 'antd';
+import axios from 'axios';
 import {createBrowserHistory} from 'history'
 import '../Css/antd.css';
 import {
@@ -20,31 +21,30 @@ class SearchUI extends Component{
 	constructor() {
 		super();
 		this.handleChange = this.handleChange.bind(this);
+		//this.requirePath = this.requirePath.bind(this);
 		this.state = {
 			val: ''
 		}
 		
 	}
 	componentDidMount() {
-		this.history = createBrowserHistory({
+		//this.requirePath()
+	}
+	handleChange(e) { 
+		var history = createBrowserHistory({
         	basename: '', // 基链接
         	forceRefresh: false, // 是否强制刷新整个页面
         	keyLength: 6, // location.key的长度
         	getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
     	})
-		if(this.state.val){
-			this.history.push('/search/searchlist/' + this.state.val);
-		}else {
-			this.history.push('/search/hot/');
-		}
-	}
-	handleChange(e) { 
 		var value = e.target.value; 
 		var error = ""; 
 		if(value.length < 1) {
-
+			history.push('/search/hot');
 		} else{
 			// console.log(value)
+			history.push('/search/searchlist');
+			
 		}
 		this.setState({
 			val: value
@@ -58,7 +58,8 @@ class SearchUI extends Component{
 			<div className='search'>
 				<div className='top'>
 					
-						<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
+					<input type='text' placeholder='自然堂' 
+					value={this.state.val} onChange={this.handleChange} onKeyUp={() => {props.changeVal(this.state.val)}}/>
 					
 					<Link to={`${match.url}/shoplist/${this.state.val}`} className='sss'>
 						<h2 onClick={() =>{props.checkVal(this.state.val)}}>
@@ -73,7 +74,7 @@ class SearchUI extends Component{
 		        <Redirect exact from={`${match.url}/`} to={`${match.url}/hot`}/>
 
 		        <Route path={`${match.url}/hot`} component={Hot}/>
-		        <Route path={`${match.url}/searchlist/:value`} component={SearchList}/>
+		        <Route path={`${match.url}/searchlist`} component={SearchList}/>
 		        <Route path={`${match.url}/shoplist/:value`} component={ShopList}/>
 		      </Switch>
 			</div>
@@ -92,6 +93,15 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch({
 				type:'CHECK_HISTORY',
 				payload:data
+			})
+		},
+		changeVal: function(words) {
+			axios.get('/api/neptune/search/suggestion/v1?keyword='+words+'&count=15')
+			.then(function(res) {
+				dispatch({
+					type:'CHANGE_VAL',
+					payload: res.data.data
+				})
 			})
 		}
 	}

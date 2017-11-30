@@ -4,7 +4,6 @@ export default function(state=[], action) {
 		case 'CHECK_HISTORY':
 			newS = [...state];
 			newS.push(action.payload);
-			console.log('mmm');
 			return newS;
 		default:
 			return state;
