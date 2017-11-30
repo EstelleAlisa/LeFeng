@@ -41,13 +41,13 @@ a{
   box-shadow: -10px 0 10px #000;
   background:#f9fafb;
 }
-.search .top .iSear{
+/*.search .top .iSear{
   display:block;
   width:72%;
   height:30px;
-}
+}*/
 .search .top input{
-  width:100%;
+  width:73%;
   height:30px;
   background:#fff;
   color:#777;
