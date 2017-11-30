@@ -8,6 +8,18 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+// router.get('/myCart', (req, res, next) => {
+//     CartModel.find({user_name: req.session.username,flag:1}, (err, docs) => {
+//         if(err){
+//           console.log(err);
+//           return;
+//         }
+//         res.send(docs);
+//         // res.send(JSON.stringify(result));
+        
+//     })
+// })
+
 router.post('/register', function(req, res, next) {
   		UserModel.find({username:req.body.username},function(err,docs){
   			var result={
@@ -172,8 +184,6 @@ router.get('/dellogin', function(req, res, next) {
           code:1
     }
     res.send(JSON.stringify(result))
-
-  
 });
 
 

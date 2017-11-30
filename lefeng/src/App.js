@@ -10,6 +10,7 @@ import CartCom from './Components/CartCom';
 
 import ListCom from './Components/ListCom';
 import SearchCom from './Components/SearchCom';
+import OrderCom from './Components/OrderCom';
 import {
   BrowserRouter as Router,
   Route,
@@ -32,6 +33,7 @@ class App extends Component {
                       <Route path='/cart' component={CartCom}/>
                       <Route path='/details/:dsid' component={DetailsCom}/>
                       <Route path='/register'  component={RegisterCom}/>
+                      <Route path='/order'  component={OrderCom}/>
 
 
 

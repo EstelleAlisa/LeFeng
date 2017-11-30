@@ -16,7 +16,6 @@ class SearchlistUI extends React.Component{
 
 	render() {
 		var props = this.props;
-		console.log(props);
 		var match = this.props.match;
 		return(
 			<div className='searchlist'>
@@ -24,10 +23,9 @@ class SearchlistUI extends React.Component{
 					{
 						props.currentList.map((item, index) => {
 							return(
-								 <Link to={'/search/shoplist/' + item}  >
-									<li key={index}>{item}</li>	
+								 <Link to={'/search/shoplist/' + item} key={index}>
+									<li>{item}</li>	
 								 </Link>
-								
 							) 
 						})
 					}

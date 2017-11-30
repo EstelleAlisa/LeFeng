@@ -51,7 +51,9 @@ class ListUI extends Component{
 							<span>阿芙</span>
 						</div>
 					</Link>
-					<i className="iconfont">&#xe601;</i>
+					<Link to='/order'>
+						<i className="iconfont">&#xe601;</i>
+					</Link>
 				</div>
 				<div className='slide'>
 					<Carousel autoplay>
