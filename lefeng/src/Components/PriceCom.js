@@ -8,14 +8,18 @@ import {
 
 class PriceUI extends React.Component{
 	componentDidMount() {
-		this.props.getPriceItem(this.props.match.params.value);
+		if(this.props.priceItem.length == 0){
+			this.props.getPriceItem(this.props.match.params.value);
+		}
+		
 	}
 	render() {
 		var props = this.props;
 		return(
-					{
+					
 			<div className='searShop'>
 				<ul>
+					{
 						props.priceItem.map((item, index) => {
 							return(
 								<Link to={'/detail/' + item.goods.gid} key={index}>	

@@ -6,6 +6,22 @@ import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
 import reducers from './Reducers/index';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk'; //处理异步action 
+import reduxpromsie from "redux-promise";
+import {applyMiddleware} from "redux";
+
+
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) : [];
+
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk,reduxpromsie),
+  // other store enhancers if any
+);
 
 const store = createStore(reducers, {})
 

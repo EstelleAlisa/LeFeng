@@ -30,7 +30,10 @@ class ShopListUI extends React.Component{
 		}
 	}
 	componentDidMount() {
-		this.props.getShopList(this.props.match.params.value);
+		if(this.props.shopList.length == 0){
+			this.props.getShopList(this.props.match.params.value);
+		}
+		
 	}
 	select(){
 		this.setState({

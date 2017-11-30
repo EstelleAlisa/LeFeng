@@ -8,7 +8,10 @@ import {
 
 class SearchlistUI extends React.Component{
 	componentDidMount() {
-		this.props.getSear(this.props.match.params.value);
+		if(this.props.searchList.length == 0){
+			this.props.getSear(this.props.match.params.value);
+		}
+		
 	}
 	render() {
 		var props = this.props;

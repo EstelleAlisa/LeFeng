@@ -15,7 +15,16 @@ class CartCom extends React.Component{
     	carteddata:[],
 
     }
+<<<<<<< HEAD
     
+=======
+    this.history = createBrowserHistory({
+        basename: '', // 基链接
+        forceRefresh: true, // 是否强制刷新整个页面
+        keyLength: 6, // location.key的长度
+        getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+    })
+>>>>>>> 9c7049e7837616dd81bca045cb6cec168e1c5fa3
     
   }
   componentDidMount() {

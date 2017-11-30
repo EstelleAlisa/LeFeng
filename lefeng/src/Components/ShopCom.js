@@ -7,7 +7,10 @@ import {
 } from 'react-router-dom';
 class ShopUI extends React.Component{
 	componentDidMount() {
-		this.props.getShopItem(this.props.match.params.value);
+		if(this.props.shopItem.length == 0){
+			this.props.getShopItem(this.props.match.params.value);
+		}
+		
 	}
 	render() {
 		var props = this.props;

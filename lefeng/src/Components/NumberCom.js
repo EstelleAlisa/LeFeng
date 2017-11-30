@@ -8,7 +8,10 @@ import {
 
 class NumberUI extends React.Component{
 	componentDidMount() {	
-		this.props.getNumberItem(this.props.match.params.value);
+		if(this.props.numberItem.length == 0){
+			this.props.getNumberItem(this.props.match.params.value);
+		}
+		
 	}
 	render() {
 		var props = this.props;

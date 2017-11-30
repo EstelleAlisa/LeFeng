@@ -3,7 +3,7 @@ import '../Css/Search.css';
 import {connect} from 'react-redux';
 import {Carousel } from 'antd';
 import { BackTop } from 'antd';
-import { browserHistory } from 'react-router'
+import {createBrowserHistory} from 'history'
 import '../Css/antd.css';
 import {
   	BrowserRouter as Router,
@@ -23,6 +23,12 @@ class SearchUI extends Component{
 		this.state = {
 			val: ''
 		}
+		// this.history = createBrowserHistory({
+  //       	basename: '', // 基链接
+  //       	forceRefresh: true, // 是否强制刷新整个页面
+  //       	keyLength: 6, // location.key的长度
+  //       	getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+  //   	})
 	}
 	componentDidMount() {
 		
@@ -40,6 +46,7 @@ class SearchUI extends Component{
 			val: value
 		})
 	}
+	
 	render() {
 		var props = this.props;
 		var match = this.props.match;
