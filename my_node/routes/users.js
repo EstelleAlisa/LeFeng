@@ -100,9 +100,10 @@ router.post('/save', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next){
-  CartModel.find({flag:1},function(err,docs){
-    if(err||docs.length==0){
+  CartModel.find({flag:1,user_name:req.session.username},function(err,docs){
+    if(err){
       console.log(err)
+      return;
     }
     res.send(docs)
 

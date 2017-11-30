@@ -297,7 +297,7 @@ class DetailComUI extends React.Component{
 					<span className="right" onClick={this.save}>加入购物车</span>
 				</div>
 				<div className="foote">
-				<p className="user_name" style={{color:"#fff"}}>{this.state.uselogin}</p>
+				<p className="user_name" style={{color:"#f6f6f6"}}>{this.state.uselogin}</p>
 					<FooterCom></FooterCom>
 				</div>
 				

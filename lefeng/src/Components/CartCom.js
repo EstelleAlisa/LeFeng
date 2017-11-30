@@ -11,9 +11,10 @@ class CartCom extends React.Component{
     super(); 
     this.state={
     	cartdata:[],
-    	count:'1',
+    	product_count:'',
     	carteddata:[],
     	uselogin:'',
+    	gong:[]
     }
   }
   iflogin(){    
@@ -39,6 +40,7 @@ class CartCom extends React.Component{
   	this.getcarted();
   	this.iflogin()
   }
+ 
   getcarts(id){
   	var history = createBrowserHistory({
             basename: '', // 基链接
@@ -61,11 +63,7 @@ class CartCom extends React.Component{
   
   getcart(){
   	var that=this;
-		axios.post('/users/add',
-		// {
-			// user_name:document.querySelector('.usernn').innerHTML
-		// }
-		)
+		axios.post('/users/add')
 		.then(function(res){
 			console.log(res)
 			that.setState({
@@ -97,11 +95,7 @@ class CartCom extends React.Component{
   }
   getcarted(){
   		var that=this;
-	  	axios.post('/users/added',
-	  	// {
-	  	// 	user_name:document.querySelector('.usernn').innerHTML
-	  	// }
-	  	)
+	  	axios.post('/users/added')
 			.then(function(res){
 				console.log(res)
 				that.setState({
@@ -128,23 +122,26 @@ class CartCom extends React.Component{
   		}
   	})
   }
-
-
-  productdel(dd){
-		dd--;
-		if(dd<=1){
-			dd=1;
+	
+  productdel(index){
+		var ccc=this.state.cartdata[index];
+  		var aaa=ccc.product_count--
+		if(aaa<=1){			
+			this.setState({
+			product_count:1
+			})
+			return;
 		}
-		console.log(dd)
 		this.setState({
-			count:dd
+			product_count:aaa
 		})
   }
-  productadd(cc){
-  	cc++;
-  	console.log(cc)
+  productadd(index){
+  	var ccc=this.state.cartdata[index];
+  	var aaa=ccc.product_count++
+	console.log(aaa)
 		this.setState({
-			count:cc
+			product_count:aaa
 		})
   }
 
@@ -158,8 +155,16 @@ class CartCom extends React.Component{
 						<p><Link to="/home"><span>去首页逛逛</span></Link></p>
 					</div>
 					if(this.state.cartdata.length!==0){
+						console.log(this.state.cartdata.length)
+						var ts=0
+						for(var i=0;i<this.state.cartdata.length;i++){
+							var ft=this.state.cartdata[i]
+							ts+=ft.price*ft.product_count
+						}
+						console.log(ts)
+						var toddo=ts
 							mepty=null;
-					};
+						}
 					
 
 		return (
@@ -189,16 +194,16 @@ class CartCom extends React.Component{
 											<p className="p1">{item.product_name}</p>
 											<p>￥{item.price}</p>
 											<p>
-												<span onClick={()=>this.productdel(this.state.count,item._id)}>-</span>
-												<span>{this.state.count}</span>
-												<span onClick={()=>this.productadd(this.state.count,item._id)}>+</span>
+												<span onClick={()=>this.productdel(index)}>-</span>
+												<span>{item.product_count}</span>
+												<span onClick={()=>this.productadd(index)}>+</span>
 												<button  className="r" onClick={()=>this.deleting(item._id)}>X</button>
 											</p>
 										</aside>
 									</li>
 									<li className="list_4">
 										<p>
-											<span className="l">商品合计</span><span className="r">￥<span className="totle">{item.price*this.state.count}</span></span>
+											<span className="l">商品合计</span><span className="r">￥<span className="totle">{item.price*item.product_count}</span></span>
 										</p>
 									</li>
 									<li  className="list_5">
@@ -245,7 +250,7 @@ class CartCom extends React.Component{
 
 
 				<div className="clearing">
-					<div className="left l">待支付：￥<span></span></div>
+					<div className="left l">待支付：￥<span>{ts}</span></div>
 					<div className="right l">结算</div>
 				</div>
 
