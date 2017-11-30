@@ -6,11 +6,11 @@ var Cart= new Schema({
 
     pic    : String,
     product_name:String,
-    product_count:String,
+    product_count:Number,
     product_type:String,
     flag:Number,
     brandName:String,
-    price:String,
+    price:Number,
     date      : { type: Date, default: Date.now }
 
 });

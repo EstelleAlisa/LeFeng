@@ -27,10 +27,10 @@ class DnumberUI extends React.Component{
 									</Link>  
 								</div>
 								<p className='nameInfo'>
-									<span class='name1'>
+									<span className='name1'>
 										{item.goods.name}
 									</span>
-									<span class='name2'>
+									<span className='name2'>
 										{item.goods.productName}
 									</span>
 								</p>

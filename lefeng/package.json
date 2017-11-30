@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^2.13.10",
     "axios": "^0.17.1",
+    "history": "^4.7.2",
     "middleware": "^1.0.0",
     "promise": "^8.0.1",
     "react": "^16.1.1",
