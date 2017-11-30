@@ -1,12 +1,39 @@
 import React from 'react';
 import axios from 'axios';
 import "../Css/detail.css";
+import FooterCom from './FooterCom'
 import {connect} from 'react-redux'
 import {
   Link
 } from 'react-router-dom'
 
 class DetailComUI extends React.Component{
+	constructor() {
+    super(); 
+    this.state={
+    	uselogin:'',
+    }
+  }
+
+  iflogin(){    
+  	var that=this;
+		axios.get('/users/iflogin')
+		.then(function(res){
+			console.log(res)
+			if(res.data.code!=1){
+				that.setState({
+					uselogin:'',
+				})
+
+			}else{
+				that.setState({
+					uselogin:res.data.message,
+				})
+
+			}
+		})
+  }
+
 	componentDidMount() {
 		this.props.getdetail(this.props.match.params.did)
 		this.props.getdetailS(this.props.match.params.did)
@@ -15,6 +42,7 @@ class DetailComUI extends React.Component{
 		this.props.	getbuy()
 		this.props.	getbuy_1()
 		this.props.	getbuy_2()
+		this.iflogin()
 	}
 	information(){
   		document.querySelector(".information_1").style.display='block';
@@ -32,6 +60,8 @@ class DetailComUI extends React.Component{
 			price:document.querySelector('.pricenow span').innerHTML,
 			pic:document.querySelector('.bigpic img').src,
 			brandName:document.querySelector('.brandName').innerHTML,
+			user_name:document.querySelector('.user_name').innerHTML,
+
 
 		})
 		.then(function(res){
@@ -267,6 +297,11 @@ class DetailComUI extends React.Component{
 
 					<span className="right" onClick={this.save}>加入购物车</span>
 				</div>
+				<div className="foote">
+				<p className="user_name" style={{color:"#fff"}}>{this.state.uselogin}</p>
+					<FooterCom></FooterCom>
+				</div>
+				
 	
 			</div>
 
@@ -320,6 +355,7 @@ const mapDispatchToProps=(dispatch)=>{
   		})
   	},
   	getallImages:function(did){
+  		document.querySelector(".lookpic").style.color="#fff"
   		axios.get('/api/neptune/goods/detail_with_stock/v1?needBrandInfo=true&gid='+did)
   		.then(function(res){
 		console.log(res.data.data.goods.allImages)

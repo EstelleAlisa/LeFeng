@@ -13,12 +13,31 @@ class CartCom extends React.Component{
     	cartdata:[],
     	count:'1',
     	carteddata:[],
-  
+    	uselogin:'',
+    }
   }
-}
+  iflogin(){    
+  	var that=this;
+		axios.get('/users/iflogin')
+		.then(function(res){
+			console.log(res)
+			if(res.data.code!=1){
+				that.setState({
+					uselogin:'',
+				})
+
+			}else{
+				that.setState({
+					uselogin:res.data.message,
+				})
+
+			}
+		})
+  }
   componentDidMount() {
   	this.getcart();
   	this.getcarted();
+  	this.iflogin()
   }
   getcarts(id){
   	var history = createBrowserHistory({
@@ -42,7 +61,11 @@ class CartCom extends React.Component{
   
   getcart(){
   	var that=this;
-		axios.post('/users/add')
+		axios.post('/users/add',
+		// {
+			// user_name:document.querySelector('.usernn').innerHTML
+		// }
+		)
 		.then(function(res){
 			console.log(res)
 			that.setState({
@@ -74,7 +97,11 @@ class CartCom extends React.Component{
   }
   getcarted(){
   		var that=this;
-	  	axios.post('/users/added')
+	  	axios.post('/users/added',
+	  	// {
+	  	// 	user_name:document.querySelector('.usernn').innerHTML
+	  	// }
+	  	)
 			.then(function(res){
 				console.log(res)
 				that.setState({
@@ -140,7 +167,7 @@ class CartCom extends React.Component{
 				<div className='top'>
 					<Link to="/home"><i className="iconfont">&#xe608;</i></Link>
 					<h2>购物车</h2>
-					<i></i>
+					<span className="usernn">{this.state.uselogin}</span>
 				</div>
 				<div className="cart_center">
 					{mepty}
@@ -218,7 +245,7 @@ class CartCom extends React.Component{
 
 
 				<div className="clearing">
-					<div className="left l">待支付：￥<span>{(this.state.cartdata.count)*(this.state.cartdata.price)}</span></div>
+					<div className="left l">待支付：￥<span></span></div>
 					<div className="right l">结算</div>
 				</div>
 

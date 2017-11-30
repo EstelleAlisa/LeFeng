@@ -23,16 +23,20 @@ class SearchUI extends Component{
 		this.state = {
 			val: ''
 		}
-		// this.history = createBrowserHistory({
-  //       	basename: '', // 基链接
-  //       	forceRefresh: true, // 是否强制刷新整个页面
-  //       	keyLength: 6, // location.key的长度
-  //       	getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
-  //   	})
+		
 	}
 	componentDidMount() {
-		
-		
+		this.history = createBrowserHistory({
+        	basename: '', // 基链接
+        	forceRefresh: false, // 是否强制刷新整个页面
+        	keyLength: 6, // location.key的长度
+        	getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
+    	})
+		if(this.state.val){
+			this.history.push('/search/searchlist/' + this.state.val);
+		}else {
+			this.history.push('/search/hot/');
+		}
 	}
 	handleChange(e) { 
 		var value = e.target.value; 
@@ -46,7 +50,6 @@ class SearchUI extends Component{
 			val: value
 		})
 	}
-	
 	render() {
 		var props = this.props;
 		var match = this.props.match;
@@ -54,9 +57,9 @@ class SearchUI extends Component{
 
 			<div className='search'>
 				<div className='top'>
-					<Link to={`${match.url}/searchlist/${this.state.val}`} className='iSear'>
+					
 						<input type='text' placeholder='自然堂' value={this.state.val} onChange={this.handleChange}/>
-					</Link>
+					
 					<Link to={`${match.url}/shoplist/${this.state.val}`} className='sss'>
 						<h2 onClick={() =>{props.checkVal(this.state.val)}}>
 							搜索

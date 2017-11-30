@@ -128,11 +128,11 @@
 	background:#ff0056;
 
 }
-.detail table{
+.detail .information_1 table{
 	border-spacing: 0;
 	font-size: 14px;
 }
-.detail .information_1 th{
+.detail .information_1 table th{
 	width:33%;
 	padding-left:5px;
 	border:1px solid #ccc;
@@ -140,7 +140,7 @@
 	background:#f7f7f7;
 
 }
-.detail .information_1 td{
+.detail .information_1 table td{
 	width:66%;
 	padding-left:5px;
 	border:1px solid #ccc;
@@ -149,7 +149,7 @@
 	width:100%;
 }
 .detail .information_1 .lookpic{
-	height:40px;
+	height:90px;
 	width: 100%;
 	line-height: 40px;
 	text-align: center;
@@ -184,7 +184,7 @@
 	background:#fff;
 	display: flex;
 	flex-wrap: wrap;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 }
 .detail .like dl{
 	width:50%;
@@ -203,7 +203,11 @@
 	border:0;
 }
 .detail .like dl dd span.l{
-	padding-right:5px;
+	padding-right:3px;
+		width:35%;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;
 		font-size: 16px;
 }
 .detail .like dl dd span.r{
@@ -278,4 +282,9 @@
 }
 .detail .allimages img{
 		width:100%;
+}
+
+
+.detail .foote{
+	margin-bottom: 80px;
 }
