@@ -15,12 +15,7 @@ class CartCom extends React.Component{
     	carteddata:[],
 
     }
-    this.history = createBrowserHistory({
-            basename: '', // 基链接
-            forceRefresh: true, // 是否强制刷新整个页面
-            keyLength: 6, // location.key的长度
-            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
-        })
+    
     
   }
   componentDidMount() {
@@ -28,14 +23,23 @@ class CartCom extends React.Component{
   	this.getcarted();
   }
   getcarts(id){
+  	var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
   	console.log('aaa')
 		axios.post('/users/getadd',{
 			id:id
 		})
 		.then(function(res){
 			console.log(res)
+			if(res.data.code==1){
+				history.push('/cart')
+			}
 		})
-		this.history.push('/cart') 
+		 
   }
   
   getcart(){
@@ -51,15 +55,24 @@ class CartCom extends React.Component{
   }
   
   deleting(id){
-	
+	var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
   		console.log('bbb')
 	  	axios.post('users/del',{
 	  		id:id
 	  	})
 	  	.then(function(res){
-	  		console.log(res)		
+	  		console.log(res)
+	  		if(res.data.code==1){
+	  			history.push('/cart')	
+	  		}
+	  				
 	  	});
- 		this.history.push('/cart') 
+ 		 
   }
   getcarted(){
   		var that=this;
@@ -73,15 +86,25 @@ class CartCom extends React.Component{
 		}) 
   }
   deleted(id){
+  	var history = createBrowserHistory({
+            basename: '', // 基链接
+            forceRefresh: true, // 是否强制刷新整个页面
+            keyLength: 6, // location.key的长度
+            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+        })
   		console.log('ccc')
   	axios.post('users/deled',{
   		id:id
   	})
   	.then(function(res){
   		console.log(res)
+  		if(res.data.code==1){
+  			history.push('/cart')
+  		}
   	})
-  	this.history.push('/cart') 
   }
+
+
   productdel(dd){
 		dd--;
 		if(dd<=1){
@@ -197,7 +220,7 @@ class CartCom extends React.Component{
 
 
 				<div className="clearing">
-					<div className="left l">待支付：<span></span></div>
+					<div className="left l">待支付：￥<span>{(this.state.cartdata.count)*(this.state.cartdata.price)}</span></div>
 					<div className="right l">结算</div>
 				</div>
 

@@ -1,15 +1,28 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {createBrowserHistory} from 'history'
 import {
   Link
 } from 'react-router-dom'
 import '../Css/Register.css'
 
 class RegisterUI extends Component{
+	constructor() {
+		    super(); 
+		    
+  		}
 	componentDidMount() {
 		
 	}
 	register(){
+		var history = createBrowserHistory({
+		            basename: '', // 基链接
+		            forceRefresh: true, // 是否强制刷新整个页面
+		            keyLength: 6, // location.key的长度
+		            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+		 })
+    
+		
 		axios.post('/users/register',{
 			username:document.querySelector('#username').value,
 			psw:document.querySelector('#psw').value
@@ -17,12 +30,12 @@ class RegisterUI extends Component{
 		.then(function(res){
 			console.log(res)
 			if(res.data.code==1){
-				alert('注册成功')
+				history.push('/login')
 			}
 			else{
 				alert('注册失败')
 			}
-		})
+		}) 
 	}
 	render() {
 		var props = this.props;
