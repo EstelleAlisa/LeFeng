@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {createBrowserHistory} from 'history'
 import {
   Link
 } from 'react-router-dom'
@@ -10,6 +11,13 @@ class LoginUI extends Component{
 		
 	}
 	login(){
+		var history = createBrowserHistory({
+		            basename: '', // 基链接
+		            forceRefresh: true, // 是否强制刷新整个页面
+		            keyLength: 6, // location.key的长度
+		            getUserConfirmation: (message,callback) => callback(window.confirm(message)) // 跳转拦截函数
+		 })
+    
 		axios.post('/users/login',{
 			username:document.querySelector('#username').value,
 			psw:document.querySelector('#psw').value
@@ -17,7 +25,7 @@ class LoginUI extends Component{
 		.then(function(res){
 			console.log(res)
 			if(res.data.code==1){
-				alert('登录成功')
+				history.push('/home')
 			}
 			else{
 				alert('登录失败')
