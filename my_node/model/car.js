@@ -9,6 +9,7 @@ var Cart= new Schema({
     product_count:Number,
     product_type:String,
     flag:Number,
+    user_name:String,
     brandName:String,
     price:Number,
     date      : { type: Date, default: Date.now }

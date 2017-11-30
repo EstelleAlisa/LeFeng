@@ -86,6 +86,7 @@ router.post('/save', function(req, res, next) {
         product.price=req.body.price;
         product.pic=req.body.pic;
         product.brandName=req.body.brandName;
+        product.user_name=req.body.user_name;
         product.flag=1;
 
         product.save(function(err){
@@ -173,5 +174,6 @@ router.get('/dellogin', function(req, res, next) {
 
   
 });
+
 
 module.exports = router;
