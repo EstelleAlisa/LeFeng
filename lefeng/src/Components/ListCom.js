@@ -20,10 +20,24 @@ import FooterCom from './FooterCom'
 
 class ListUI extends Component{
 	 componentDidMount() {
-		this.props.getSlide();
-		this.props.getSpecial();
-		this.props.getFina();
-		this.props.getEvery();
+	 	if(	this.props.slide.length == 0 || 
+	 	   	this.props.slide2.length == 0 ||
+			this.props.slide3.length == 0 ||
+			this.props.hanList.length == 0 ||
+			this.props.globalList.length == 0){
+	 		this.props.getSlide();
+		
+	 	}
+	 	if(this.props.specialList.length == 0){
+	 		this.props.getSpecial();
+	 	}
+		if(this.props.finaList.length == 0){
+			this.props.getFina();
+		}
+		if(this.props.everyList.length == 0){
+			this.props.getEvery();
+		}
+		
 	}
 	render() {
 		var props = this.props;
