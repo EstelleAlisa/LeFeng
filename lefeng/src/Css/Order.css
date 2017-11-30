@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/iconfont.woff') format('woff'),
+  url('../font/iconfont.ttf') format('truetype'),
+  url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+input,img{
+  border:none;
+  display:block;
+}
+*{
+  padding:0;
+  margin:0;
+}
+.l{
+  float:left;
+}
+.r{
+  float:right;
+}
+a{
+  text-decoration: none;
+  color:#000;
+}
+
+.order{
+  width:100%;
+  height:100%;
+}
+.order .top{
+  padding:0 20px;
+  display: flex;
+  justify-content: space-between;
+  height:47px;
+  line-height: 47px;
+  box-shadow: -10px 0 10px #000;
+  background:#f9fafb;
+}
+.order .top h2{
+  font-size:20px;
+  font-weight:600;
+  color:#777;
+}
+.order .top i{
+  font-size:25px;
+  color:#aaa;
+  font-weight:600;
+}
+.order .user{
+  display:flex;
+  justify-content: flex-start;
+  padding:18px;
+  height:98px;
+  line-height:98px;
+  background:url(https://h5rsc-ssl.vipstatic.com/lefeng/build/ce0cbb137bb02dffefc5d38959e9c489.png)
+   no-repeat;
+}
+.order .user img{
+  width:66px;
+  height:66px;
+  border-radius:50%;
+  margin-right: 25px;
+}
+.order .user p{
+  height:62px;
+  line-height:69px;
+}
+.order .user p span{
+  font-size:18px;
+  font-weight:600;
+  padding:0 5px;
+}
+.order .myOrder{
+
+}
+.order .myOrder .mainMes{
+  height:51px;
+  padding:0 15px;
+  line-height:51px;
+  display:flex;
+  font-size:15px;
+  background:#fff;
+  border-bottom:3px solid #f6f6f6;
+  justify-content: space-between;
+}
+.order .myOrder .mainMes p{
+  color:#666;
+  
+}
+.order .myOrder .mainMes p .sMore{
+   color:#ccc;
+   font-size:18px;
+   margin-left:10px;
+}
+.order .myOrder .orderInfo{
+  height:58px;
+  display:flex;
+  justify-content: space-between;
+  background: #fff;
+  padding:5px 0;
+  margin-bottom:14px;
+}
+.order .myOrder .orderInfo div{
+  text-align:center;
+  height:100%;
+  width:33.3%;
+}
+.order .myOrder .orderInfo div img{
+  width:25px;
+  height:25px;
+  margin-bottom:5px;
+  margin-left:40%;
+}
+.order .myOrder .same{
+  height:57px;
+  padding:0 15px;
+  line-height:57px;
+  display:flex;
+  font-size:15px;
+  background:#fff;
+  justify-content: space-between;
+}
+.order .myOrder .same p{
+  color:#666;
+  
+}
+.order .myOrder .same p.area{
+  display:flex;
+  justify-content: flex-start;
+}
+.order .myOrder .same p img{
+  width:25px;
+  height:25px;
+  margin-top:12%;
+  margin-right:5px;
+}
+.order .myOrder .same p .sMore{
+   color:#ccc;
+   font-size:18px;
+   margin-left:10px;
+}
+.order .myOrder .wid{
+    border-bottom:2px solid #f6f6f6;
+}
+.order .myOrder .heig{
+    border-bottom:14px solid #f6f6f6;
+}

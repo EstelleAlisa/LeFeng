@@ -61,10 +61,7 @@ class CartCom extends React.Component{
   
   getcart(){
   	var that=this;
-		axios.post('/users/add',
-		// {
-			// user_name:document.querySelector('.usernn').innerHTML
-		// }
+		axios.get('/users/add'
 		)
 		.then(function(res){
 			console.log(res)

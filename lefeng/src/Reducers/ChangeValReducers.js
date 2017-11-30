@@ -4,7 +4,6 @@ export default function(state=[], action) {
 		case 'CHANGE_VAL':
 			newS = [...state];
 			newS = action.payload;
-			console.log(newS)
 			return newS;
 		default:
 			return state;

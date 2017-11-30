@@ -394,12 +394,7 @@ const mapDispatchToProps=(dispatch)=>{
   			})
   		})
   	},
-  	
-
-
   }
-
-
 }
 
 const DetailCom=connect(mapStateToProps,mapDispatchToProps)(DetailComUI)
