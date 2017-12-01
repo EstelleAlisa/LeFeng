@@ -3,7 +3,6 @@ export default function(state=[],action){
 		case "PRICE":
 			var newS=[...state];
 			newS=action.payload;
-			console.log(newS)
 			return newS;
 		default:
 			return state;

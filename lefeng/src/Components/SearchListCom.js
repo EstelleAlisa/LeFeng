@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import '../Css/SearchList.css';
 import axios from 'axios';
 import {
+	BrowserRouter as Router,
   	Link
 } from 'react-router-dom';
 

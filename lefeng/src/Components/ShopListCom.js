@@ -45,10 +45,10 @@ class ShopListUI extends React.Component{
 			Flag:false
 		})
 	}
-	didSelect(data) {
-		document.querySelector('.didsel').style.border = '1px solid #f00';
+	didSelect(index) {
+		var realVal = this.props.shopList[index].thirdCatName;
 		this.setState({
-			nowVlue: data
+			nowVlue: realVal
 		})
 		this.props.getShopList(this.state.nowVlue);
 	}
@@ -61,12 +61,12 @@ class ShopListUI extends React.Component{
 						</div>
 					<div className="select_center">
 						<h4>分类</h4>
-						<ul>
+						<ul className='needSel'>
 							<li>全部</li>
 							{
 								props.shopList.map((item, index) => {
 									return(
-										<li key={index} className='didsel' onClick={() => {this.didSelect(item.thirdCatName)}}>
+										<li key={index} onClick={() => {this.didSelect(index)}}>
 											{item.thirdCatName}
 										</li>	
 									) 
@@ -86,6 +86,7 @@ class ShopListUI extends React.Component{
 
 		var match = this.props.match;
 		return(
+			<Router>
 			<div className='shoplist'>
 				<nav>
 					<Link to={`${match.url}/price/${match.params.value}`}>
@@ -103,7 +104,7 @@ class ShopListUI extends React.Component{
 					</div>
 				</nav>
 				<Switch>
-				    <Redirect exact from={`${match.url}/`} to={`${match.url}/shop`}/>
+				    <Redirect exact from={`${match.url}/`} to={`${match.url}/shop/${match.params.value}`}/>
 				    <Route path={`${match.url}/shop/:value`} component={ShopCom}/>
 				    <Route path={`${match.url}/price/:value`} component={PriceCom}/>
 				    <Route path={`${match.url}/number/:value`} component={NumberCom}/>
@@ -115,9 +116,8 @@ class ShopListUI extends React.Component{
 			    	transitionLeaveTimeout={600}>
 			    {selects}    
 				</ReactCSSTransitionGroup>
-
-
 			</div>
+			</Router>
 		)
 	}
 }

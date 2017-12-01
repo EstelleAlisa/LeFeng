@@ -31,20 +31,11 @@ class SearchUI extends Component{
 		//this.requirePath()
 	}
 	handleChange(e) { 
-		var history = createBrowserHistory({
-        	basename: '', // 基链接
-        	forceRefresh: false, // 是否强制刷新整个页面
-        	keyLength: 6, // location.key的长度
-        	getUserConfirmation: (message, callback) => callback(window.confirm(message)) // 跳转拦截函数
-    	})
 		var value = e.target.value; 
-		var error = ""; 
 		if(value.length < 1) {
-			history.push('/search/hot');
+			this.props.history.push('/search/hot');
 		} else{
-			// console.log(value)
-			history.push('/search/searchlist');
-			
+			this.props.history.push('/search/searchlist');
 		}
 		this.setState({
 			val: value
@@ -54,7 +45,6 @@ class SearchUI extends Component{
 		var props = this.props;
 		var match = this.props.match;
 		return(
-
 			<div className='search'>
 				<div className='top'>
 					
